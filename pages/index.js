@@ -1,5 +1,29 @@
 import { Header } from '../src/components/Header';
+import Head from 'next/head';
 
-const Test = () => <><Header /><div>Hey<h1>Kenny</h1></div></>;
+const App = () => {
+    return(
+        <>
+        <Head>
+            <style>{`
+            * {
+                margin: 0;
+                pading: 0;
+                box-sizing: border-box;
+            }
 
-export default Test;
+            html {
+                font-size:10px;
+            }
+
+            a {
+                text-decoration: none;
+            }
+            `}</style>
+        </Head>
+        <Header />
+        </>
+    );
+}
+
+export default App;

@@ -7,7 +7,7 @@ export const SearchBox = styled.div`
     height: 6rem;
     border-radius: .8rem;
     padding: 0 1rem;
-    box-shadow: 0 1rem 3rem -.8rem aquamarine;
+    ${ ({half}) => half ? "box-shadow: 0 1rem 3rem -.8rem aquamarine;" : "" }
     background-color: white;
     display: grid;
     grid-template-columns: 1fr .005fr 1fr .4fr;

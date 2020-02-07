@@ -1,8 +1,11 @@
 import styled from 'styled-components';
 
 export const HeaderWrapper = styled.header`
+    position: fixed;
     width: 100%;
     height: 7rem;
+    background-color: white;
+    z-index: 10;
 `;
 
 export const HeaderInner = styled.div`

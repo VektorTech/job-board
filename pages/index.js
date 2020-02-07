@@ -1,4 +1,6 @@
-import { Header } from '../src/components/Header';
+import Header from '../src/components/Header/Header';
+import { Banner_1, Banner_2 } from '../src/components/Banner/Banner';
+import Footer from '../src/components/Footer/Footer';
 import Head from 'next/head';
 
 const App = () => {
@@ -18,10 +20,22 @@ const App = () => {
 
             a {
                 text-decoration: none;
+                color: black;
+            }
+
+            ul {
+                list-style-type: none;
+            }
+
+            li {
+                margin: 1rem 0;
             }
             `}</style>
         </Head>
         <Header />
+        <br />
+        <Banner_2 />
+        <Footer />
         </>
     );
 }

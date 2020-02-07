@@ -6,7 +6,7 @@ import {
 
 import Link from 'next/link';
 
-export const Header = () => (
+const Header = () => (
     <HeaderWrapper>
         <HeaderInner>
             <div>
@@ -27,3 +27,5 @@ export const Header = () => (
         </HeaderInner>
     </HeaderWrapper>
 );
+
+export default Header;

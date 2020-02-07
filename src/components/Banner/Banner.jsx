@@ -18,7 +18,7 @@ export const Banner_1 = () => (
 );
 
 export const Banner_2 = () => (
-    <BannerWrapper>
+    <BannerWrapper thin>
         <BannerContent2>
             <SeachBar />
         </BannerContent2>

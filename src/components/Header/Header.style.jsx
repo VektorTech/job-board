@@ -24,6 +24,6 @@ export const Nav = styled.ul`
 `;
 
 export const NavItem = styled.li`
-    padding: 0 1rem;
+    padding: 0 1.2rem;
     display: inline;
 `;

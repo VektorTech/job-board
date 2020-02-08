@@ -2,9 +2,9 @@ import {
     SearchBox,
     Search,
     Select,
-    Submit,
     FAI
 } from './SearchBar.style';
+import Button from '../Buttons/Button';
 
 
 // import Link from 'next/link';
@@ -26,7 +26,7 @@ const SearchBar = ({half}) => (
             </Select>
         </div>
         
-        <div><Submit>Search</Submit></div>
+        <div><Button type="Search">Search</Button></div>
     </SearchBox>
     </form>
 );

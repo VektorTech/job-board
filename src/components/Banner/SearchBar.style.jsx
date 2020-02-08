@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Icon } from '../Icon.style';
+import FontAwesomeIcon from '../Other/FontAwesomeIcon.style';
 
 export const SearchBox = styled.div`
    max-width: 50%;
@@ -28,17 +28,7 @@ export const SearchBox = styled.div`
    color: #666;
    border: none;
  `;
- 
- export const Submit = styled.button`
-   width: 100%;
-   height: 5rem;
-   border: none;
-   border-radius: 1rem;
-   background-color: blue;
-   color: white;
-   font-size: 1.2rem;
- `;
 
- export const FAI = styled(Icon)`
+ export const FAI = styled(FontAwesomeIcon)`
     margin: 0 1.4rem 0 2.5rem;
  `; 

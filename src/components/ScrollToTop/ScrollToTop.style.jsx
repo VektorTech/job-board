@@ -12,7 +12,6 @@ export const ScrollToTop = styled.button`
     border-radius: 100%;
     box-shadow: 0 0 1rem .2rem #9999;
     background-color: white;
-    cursor: pointer;
     border: none;
 `;
 

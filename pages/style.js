@@ -23,6 +23,10 @@ ul {
 li {
     margin: 1rem 0;
 }
+
+button {
+    cursor: pointer;
+}
 `;
 
 export default style.componentStyle.rules[0];

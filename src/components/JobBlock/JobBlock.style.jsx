@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {Icon} from '../Icon.style';
+import FontAwesomeIcon from '../Other/FontAwesomeIcon.style';
 
 export const BlockContainer = styled.div`
     width: 100%;
@@ -20,23 +20,12 @@ export const ListItem = styled.li`
     margin-right: 20%;
 `;
 
-export const JobType = styled.div`
-    float: right;
-    width: 8rem;
-    height: 2.8rem;
-    line-height: 2.8rem;
-    border-radius: 2rem;
-    text-align: center;
-    color: blue;
-    background-color: aqua;
-`;
-
 export const JobDate = styled.p`
-    float: right;
+    /* float: right; */
     margin-top: 1rem;
     color: #999;
 `;
 
-export const FAI = styled(Icon)`
+export const FAI = styled(FontAwesomeIcon)`
     margin-right: .6rem;
 `;

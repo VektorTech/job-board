@@ -5,13 +5,15 @@ import {
     CompDetails,
     CompTagsArea,
     JobDescr,
-    Submit,
-    HeadTag,
     Column,
-    Nav, CompLogoImg,
-    SearchTag, Ratings,
-    SaveButton
+    Nav,
+    Ratings
 } from './ViewJob.style';
+
+import TagBlock from '../src/components/Tag/Tag';
+import { CompLogoImg } from '../src/components/Other/CompanyLogo.style';
+import Button from '../src/components/Buttons/Button';
+import Heading from '../src/components/Other/Heading.style';
 
 const details = {
     "SALARY": "", "START DATE": "", "LOCATION": "Los Angeles"
@@ -24,16 +26,16 @@ const ViewJob = () => (
             <Ratings>4.9</Ratings>
         </CompLogo>
         <CompHeading>
-            <HeadTag lg>Product Store Manager for Apple in Los Angeles</HeadTag>
-            <HeadTag>Apple Inc</HeadTag>
+            <Heading size="lg">Product Store Manager for Apple in Los Angeles</Heading>
+            <Heading>Apple Inc</Heading>
             <h2><a href="/">{"<<WEBSITE>>"}</a></h2>
-            <Submit>Apply Now</Submit>
-            <SaveButton> {"<3"} Save</SaveButton>
+            <Button type="Apply">Apply Now</Button>
+            <Button type="Save"> {"<3"} Save</Button>
         </CompHeading>
         <CompDetails>
             { Object.keys(details).map( key => (
                 <Column>
-                <HeadTag>{key}</HeadTag>
+                <Heading size="sm">{key}</Heading>
                 <Nav>
                     <li>{details[key]}</li>
                 </Nav>
@@ -41,12 +43,12 @@ const ViewJob = () => (
             ))}
         </CompDetails>
         <CompTagsArea>
-            <SearchTag>Accounting</SearchTag>
-            <SearchTag>Accounting</SearchTag>
-            <SearchTag>Accounting</SearchTag>
-            <SearchTag>Accounting</SearchTag>
-            <SearchTag>Accounting</SearchTag>
-            <SearchTag>Accounting</SearchTag>
+            <TagBlock type="search">Accounting</TagBlock>
+            <TagBlock type="search">Accounting</TagBlock>
+            <TagBlock type="search">Accounting</TagBlock>
+            <TagBlock type="search">Accounting</TagBlock>
+            <TagBlock type="search">Accounting</TagBlock>
+            <TagBlock type="search">Accounting</TagBlock>
         </CompTagsArea>
         <JobDescr>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur dolorum quisquam totam quae. Magnam quisquam ex distinctio in, incidunt quibusdam error architecto ducimus enim voluptates! Inventore voluptatibus totam magni vero?

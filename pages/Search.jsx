@@ -2,14 +2,14 @@ import {
     SearchPageContainer,
     SearchPageMain,
     SearchPageAside,
-    HeadTag,
-    SearchTag,
     SearchTagArea,
     ListItem,
     CheckBox
 } from './Search.style';
 
 import JobBlock from '../src/components/JobBlock/JobBlock';
+import TagBlock from '../src/components/Tag/Tag';
+import Heading from '../src/components/Other/Heading.style';
 
 const asideStruct = {
     "City": [],
@@ -21,15 +21,15 @@ const asideStruct = {
 const SearchPage = () => (
     <SearchPageContainer>
         <SearchPageAside>
-            <HeadTag>Current Search</HeadTag>
+            <Heading>Current Search</Heading>
             <SearchTagArea>
-                <SearchTag>Sales</SearchTag>
-                <SearchTag>Cambridge</SearchTag>
+                <TagBlock type="search">Sales</TagBlock>
+                <TagBlock type="search">Cambridge</TagBlock>
             </SearchTagArea>
             
             {Object.keys(asideStruct).map(key => (
                 <ul>
-                <HeadTag>Refine by {key}</HeadTag>
+                <Heading>Refine by {key}</Heading>
                 {asideStruct[key].map(item => (
                     <ListItem>
                     <CheckBox type="checkbox"/>
@@ -41,7 +41,7 @@ const SearchPage = () => (
         </SearchPageAside>
 
         <SearchPageMain>
-            <HeadTag big>Job Listing</HeadTag>
+            <Heading size="lg">Job Listing</Heading>
             <br />
             <JobBlock />
             <JobBlock />

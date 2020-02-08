@@ -1,9 +1,10 @@
 import {
     BlockContainer,
     CompLogoContainer,
-    JobType, ListItem,
+    ListItem,
     JobDate, FAI
 } from './JobBlock.style';
+import TagBlock from '../Tag/Tag';
 
 const JobBlock = () => (
     <BlockContainer>
@@ -17,8 +18,8 @@ const JobBlock = () => (
                 <ListItem><FAI icon="compass"/>Munich</ListItem>
             </ul>
         </div>
-        <div>
-            <JobType>Full Time</JobType>
+        <div style={{textAlign: "right"}}>
+            <TagBlock type="job">Full Time</TagBlock>
             <JobDate><FAI icon="calendar"/>April 12, 2020</JobDate>
         </div>
     </BlockContainer>

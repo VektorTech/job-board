@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Icon } from '../Icon.style';
+import FontAwesomeIcon from '../Other/FontAwesomeIcon.style';
 
 export const FooterWrapper = styled.footer`
     width: 100%;
@@ -22,20 +22,12 @@ export const Column = styled.div`
     padding: 5rem 0 0 1rem;
 `;
 
-export const HeadTag = styled.h1`
-    font-weight: bold;
-`;
-
-export const Nav = styled.ul`
-    padding: 1rem 0 0 0;
-`;
-
 export const Copy = styled.div`
     widtH: 100%;
     text-align: center;
     font-size: 1.3rem;
 `;
 
-export const FAI = styled(Icon)`
+export const FAI = styled(FontAwesomeIcon)`
     margin-right: .8rem;
 `;

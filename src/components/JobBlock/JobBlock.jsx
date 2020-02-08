@@ -6,14 +6,15 @@ import {
 } from './JobBlock.style';
 import TagBlock from '../Tag/Tag';
 import Heading from '../Other/Heading.style';
+import { CompLogoImg } from '../Other/CompanyLogo.style';
 
 const JobBlock = () => (
     <BlockContainer>
         <CompLogoContainer>
-
+            <CompLogoImg />
         </CompLogoContainer>
         <div>
-            <Heading size="lg">Executive Producer</Heading>
+            <Heading size="med">Executive Producer</Heading>
             <ul style={{marginTop: "1rem"}}>
                 <ListItem><FAI icon="building"/>Twitter</ListItem>
                 <ListItem><FAI icon="compass"/>Munich</ListItem>

@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
 export const SearchPageContainer = styled.div`
-    display: flex;
-    flex-direction: row;
     width: 100%;
     height: 150rem;
     margin: 5rem 0;
     padding: 4rem 15%;
+    
+    display: flex;
+    flex-direction: row;
 `;
 
 export const SearchPageAside = styled.aside`

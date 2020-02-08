@@ -1,12 +1,11 @@
 import styled from "styled-components";
 
 export const ViewJobContainer = styled.div`
-    display: flex;
-    flex-direction: row;
     width: 100%;
     height: fit-content;
     margin: 5rem 0;
     padding: 4rem 15%;
+    
     display: grid;
     grid-template-columns: .6fr repeat(4, 1fr);
     grid-auto-columns: 1fr;

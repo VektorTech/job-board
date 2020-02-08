@@ -5,6 +5,7 @@ import {
     JobDate, FAI
 } from './JobBlock.style';
 import TagBlock from '../Tag/Tag';
+import Heading from '../Other/Heading.style';
 
 const JobBlock = () => (
     <BlockContainer>
@@ -12,7 +13,7 @@ const JobBlock = () => (
 
         </CompLogoContainer>
         <div>
-            <h1 style={{height: "2.8rem"}}>Executive Producer</h1>
+            <Heading size="lg">Executive Producer</Heading>
             <ul style={{marginTop: "1rem"}}>
                 <ListItem><FAI icon="building"/>Twitter</ListItem>
                 <ListItem><FAI icon="compass"/>Munich</ListItem>

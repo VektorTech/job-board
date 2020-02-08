@@ -10,6 +10,8 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 
 library.add(fas);
 
+import SearchPage from './SearchPage/Search';
+
 const App = () => {
     return(
         <>
@@ -19,6 +21,9 @@ const App = () => {
         <Header />
         <br />
         <Banner_1 />
+
+        <SearchPage />
+
         <Footer />
         </>
     );

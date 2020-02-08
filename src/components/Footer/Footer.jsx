@@ -3,7 +3,8 @@ import {
     FooterInner,
     Column,
     HeadTag,
-    Nav, Copy
+    Nav, Copy,
+    FAI
 } from './Footer.style';
 
 import Link from 'next/link';
@@ -40,10 +41,10 @@ const Footer = () => (
 
             <Column>
             <Nav>
-                <li><a href="https://www.facebook.com">Facebook</a></li>
-                <li><a href="https://www.twitter.com">Twitter</a></li>
-                <li><a href="https://www.instagram.com">Instagram</a></li>
-                <li><a href="https://www.linkedin.com">LinkedIn</a></li>
+                <li><a href="https://www.facebook.com"><FAI icon="facebook"/>Facebook</a></li>
+                <li><a href="https://www.twitter.com"><FAI icon="twitter"/>Twitter</a></li>
+                <li><a href="https://www.instagram.com"><FAI icon="instagram"/>Instagram</a></li>
+                <li><a href="https://www.linkedin.com"><FAI icon="linkedin"/>LinkedIn</a></li>
             </Nav>
             </Column>
         </FooterInner>

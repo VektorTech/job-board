@@ -1,40 +1,23 @@
+import gloablStyle from './style.global.js';
 import Header from '../src/components/Header/Header';
 import { Banner_1, Banner_2 } from '../src/components/Banner/Banner';
 import Footer from '../src/components/Footer/Footer';
 import Head from 'next/head';
 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+
+library.add(fas);
+
 const App = () => {
     return(
         <>
         <Head>
-            <style>{`
-            * {
-                margin: 0;
-                pading: 0;
-                box-sizing: border-box;
-            }
-
-            html {
-                font-size:10px;
-            }
-
-            a {
-                text-decoration: none;
-                color: black;
-            }
-
-            ul {
-                list-style-type: none;
-            }
-
-            li {
-                margin: 1rem 0;
-            }
-            `}</style>
+            <style>{gloablStyle}</style>
         </Head>
         <Header />
         <br />
-        <Banner_2 />
+        <Banner_1 />
         <Footer />
         </>
     );

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const FooterWrapper = styled.footer`
     width: 100%;
@@ -33,3 +34,8 @@ export const Copy = styled.div`
     text-align: center;
     font-size: 1.3rem;
 `;
+
+
+export const FAI = styled(FontAwesomeIcon)`
+    margin-right: .8rem;
+`; 

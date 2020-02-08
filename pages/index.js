@@ -10,7 +10,8 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 
 library.add(fas);
 
-import SearchPage from './SearchPage/Search';
+import SearchPage from './Search';
+import ViewJob from './ViewJob.jsx';
 
 const App = () => {
     return(
@@ -23,6 +24,7 @@ const App = () => {
         <Banner_1 />
 
         <SearchPage />
+        {/* <ViewJob /> */}
 
         <Footer />
         </>

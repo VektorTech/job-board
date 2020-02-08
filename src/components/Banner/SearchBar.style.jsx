@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { Icon } from '../Icon.style';
 
 export const SearchBox = styled.div`
    max-width: 50%;
@@ -38,9 +39,6 @@ export const SearchBox = styled.div`
    font-size: 1.2rem;
  `;
 
- export const FAI = styled(FontAwesomeIcon)`
-    width: 1.2rem;
-    height: 1.2rem;
-    transform: translateY(10%);
+ export const FAI = styled(Icon)`
     margin: 0 1.4rem 0 2.5rem;
  `; 

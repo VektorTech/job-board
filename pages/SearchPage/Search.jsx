@@ -1,0 +1,3 @@
+const SearchPage = () => (
+    <div></div>
+);

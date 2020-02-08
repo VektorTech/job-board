@@ -39,5 +39,8 @@ export const SearchBox = styled.div`
  `;
 
  export const FAI = styled(FontAwesomeIcon)`
-   margin: 0 1.4rem 0 2.5rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    transform: translateY(10%);
+    margin: 0 1.4rem 0 2.5rem;
  `; 

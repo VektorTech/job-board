@@ -23,12 +23,6 @@ ul {
 li {
     margin: 1rem 0;
 }
-
-svg[class*=fa-] {
-    width: 1.2rem;
-    height: 1.2rem;
-    transform: translateY(10%);
-}
 `;
 
 export default style.componentStyle.rules[0];

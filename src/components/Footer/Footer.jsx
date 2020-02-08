@@ -6,6 +6,7 @@ import {
     Nav, Copy,
     FAI
 } from './Footer.style';
+import { Scroll_Top } from '../ScrollToTop/ScrollToTop.jsx';
 
 import Link from 'next/link';
 
@@ -49,6 +50,7 @@ const Footer = () => (
             </Column>
         </FooterInner>
         <Copy>Copyright 2020 Powered by ???</Copy>
+        <Scroll_Top />
     </FooterWrapper>
 );
 

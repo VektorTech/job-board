@@ -35,7 +35,9 @@ export const Copy = styled.div`
     font-size: 1.3rem;
 `;
 
-
 export const FAI = styled(FontAwesomeIcon)`
+    width: 1.2rem;
+    height: 1.2rem;
+    transform: translateY(10%);
     margin-right: .8rem;
-`; 
+`;

@@ -1,4 +1,5 @@
-import gloablStyle from './style.global.js';
+import globalStyle from './style.js';
+
 import Header from '../src/components/Header/Header';
 import { Banner_1, Banner_2 } from '../src/components/Banner/Banner';
 import Footer from '../src/components/Footer/Footer';
@@ -13,7 +14,7 @@ const App = () => {
     return(
         <>
         <Head>
-            <style>{gloablStyle}</style>
+            <style>{globalStyle}</style>
         </Head>
         <Header />
         <br />

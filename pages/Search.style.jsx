@@ -19,6 +19,8 @@ export const SearchPageMain = styled.div`
 
 export const HeadTag = styled.h1`
     font-weight: bold;
+    height: 2.3rem;
+    line-height: 2.3rem;
     ${({lg}) => lg ? "font-size: 3rem;":""}
     margin-bottom: 1rem;
 `;

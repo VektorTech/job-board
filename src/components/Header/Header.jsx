@@ -17,7 +17,6 @@ const Header = () => (
                 <NavItem><Link href="/"><a>Companies</a></Link></NavItem>
                 <NavItem><Link href="/"><a>Post a job</a></Link></NavItem>
                 <NavItem><Link href="/"><a>Resume Search</a></Link></NavItem>
-                <NavItem><Link href="/"><a>Pricing</a></Link></NavItem>
             </Nav>
             <Nav>
                 <NavItem><Link href="/"><a>Sign In</a></Link></NavItem>

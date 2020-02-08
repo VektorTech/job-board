@@ -44,6 +44,9 @@ const SearchPage = () => (
             <HeadTag big>Job Listing</HeadTag>
             <br />
             <JobBlock />
+            <JobBlock />
+            <JobBlock />
+            <JobBlock />
         </SearchPageMain>
 
     </SearchPageContainer>

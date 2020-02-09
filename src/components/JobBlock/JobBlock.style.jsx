@@ -7,7 +7,6 @@ export const BlockContainer = styled.div`
     margin-bottom: 5rem;
     display: grid;
     grid-template-columns: 1.5fr 5.5fr 2.2fr;
-    grid-gap: 2rem;
 `;
 
 export const CompLogoContainer = styled.div`

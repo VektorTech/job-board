@@ -11,7 +11,6 @@ export const BlockContainer = styled.div`
 `;
 
 export const CompLogoContainer = styled.div`
-    background-color: violet;
 `;
 
 export const ListItem = styled.li`

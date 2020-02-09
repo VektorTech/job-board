@@ -42,11 +42,12 @@ const SearchPage = () => (
 
         <SearchPageMain>
             <Heading size="lg">Job Listing</Heading>
-            <br />
+            <div style={{marginTop:"2rem"}}>
             <JobBlock />
             <JobBlock />
             <JobBlock />
             <JobBlock />
+            </div>
         </SearchPageMain>
 
     </SearchPageContainer>

@@ -23,8 +23,8 @@ const App = () => {
         <br />
         <Banner_1 />
 
-        {/* <SearchPage /> */}
-        <ViewJob />
+        <SearchPage />
+        {/* <ViewJob /> */}
 
         <Footer />
         </>

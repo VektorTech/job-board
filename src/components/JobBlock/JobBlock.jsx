@@ -11,11 +11,11 @@ import { CompLogoImg } from '../Other/CompanyLogo.style';
 const JobBlock = () => (
     <BlockContainer>
         <CompLogoContainer>
-            <CompLogoImg />
+            <CompLogoImg small/>
         </CompLogoContainer>
         <div>
             <Heading size="med">Executive Producer</Heading>
-            <ul style={{marginTop: "1rem"}}>
+            <ul style={{marginTop: "1.7rem"}}>
                 <ListItem><FAI icon="building"/>Twitter</ListItem>
                 <ListItem><FAI icon="compass"/>Munich</ListItem>
             </ul>

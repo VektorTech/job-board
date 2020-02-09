@@ -26,9 +26,15 @@ const ViewJob = () => (
             <Ratings>4.9</Ratings>
         </CompLogo>
         <CompHeading>
-            <Heading size="lg">Product Store Manager for Apple in Los Angeles</Heading>
-            <Heading>Apple Inc</Heading>
-            <h2><a href="/">{"<<WEBSITE>>"}</a></h2>
+            <Heading style={{height:"fit-content"}} size="lg">
+                Product Store Manager for Apple in Los Angeles
+            </Heading>
+
+            <div>
+                <Heading>Apple Inc</Heading>
+                <h2><a href="/">{"<<WEBSITE>>"}</a></h2>
+            </div>
+            
             <Button type="Apply">Apply Now</Button>
             <Button type="Save"> {"<3"} Save</Button>
         </CompHeading>

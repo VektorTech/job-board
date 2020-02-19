@@ -1,6 +1,3 @@
-import styled from "styled-components";
-
-const style = styled.style`
 * {
     margin: 0;
     padding: 0;
@@ -9,6 +6,7 @@ const style = styled.style`
 
 html {
     font-size:10px;
+    scroll-behavior: smooth;
 }
 
 a {
@@ -27,6 +25,3 @@ li {
 button {
     cursor: pointer;
 }
-`;
-
-export default style.componentStyle.rules[0];

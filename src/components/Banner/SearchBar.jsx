@@ -13,14 +13,14 @@ const SearchBar = ({half}) => (
     <form>
     <SearchBox half={half}>
         <div>
-            <FAI icon="search" />
+            <FAI size='lg' icon="search" />
             <Search type="text" placeholder="Search for job posting"/>
         </div>
 
         <div style={{height: "100%", backgroundColor: "#999"}}></div>
 
         <div>
-            <FAI icon="compass" />
+            <FAI size='lg' icon="map-marker" />
             <Select>
                 <option>Set Location</option>
             </Select>

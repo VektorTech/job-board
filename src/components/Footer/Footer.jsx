@@ -44,10 +44,10 @@ const Footer = () => (
 
             <Column>
             <ul>
-                <li><a href="https://www.facebook.com"><FAI icon="facebook"/>Facebook</a></li>
-                <li><a href="https://www.twitter.com"><FAI icon="twitter"/>Twitter</a></li>
-                <li><a href="https://www.instagram.com"><FAI icon="instagram"/>Instagram</a></li>
-                <li><a href="https://www.linkedin.com"><FAI icon="linkedin"/>LinkedIn</a></li>
+                <li><a href="https://www.facebook.com"><FAI size='lg' icon={["fab", "facebook"]}/>Facebook</a></li>
+                <li><a href="https://www.twitter.com"><FAI size='lg' icon={["fab", "twitter"]}/>Twitter</a></li>
+                <li><a href="https://www.instagram.com"><FAI size='lg' icon={["fab", "instagram"]}/>Instagram</a></li>
+                <li><a href="https://www.linkedin.com"><FAI size='lg' icon={["fab", "linkedin"]}/>LinkedIn</a></li>
             </ul>
             </Column>
         </FooterInner>

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import FontAwesomeIcon from '../Other/FontAwesomeIcon.style';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const BlockContainer = styled.div`
     width: 100%;

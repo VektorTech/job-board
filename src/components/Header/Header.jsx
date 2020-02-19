@@ -7,7 +7,7 @@ import {
 import Link from 'next/link';
 
 const Header = () => (
-    <HeaderWrapper>
+    <HeaderWrapper id="#top">
         <HeaderInner>
             <div>
                 LOGO

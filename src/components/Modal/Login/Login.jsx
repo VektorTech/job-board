@@ -29,7 +29,10 @@ export default ({show}) => (
         <InputText placeholder="Password" />
         </InputContainer>
 
-       <input type="checkbox"/>Remember Me
+        <div>
+        <input type="checkbox" id="remember" name="remember"/>
+        <label for="remember">Remember Me</label>
+        </div>
 
         <InputContainer>
         <Button type="Submit">Sign In</Button>

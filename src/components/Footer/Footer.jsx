@@ -28,7 +28,7 @@ const Footer = () => (
             <Heading size="med">Employer</Heading>
             <ul>
                 <li><Link href="/"><a>Post A Job</a></Link></li>
-                <li><Link href="/"><a>Search Resumes</a></Link></li>
+                <li><Link href="/"><a>Search Resumes</a></Link></li>{/*disabled for now*/}
                 <li><Link href="/"><a>Sign In</a></Link></li>
             </ul>
             </Column>
@@ -37,7 +37,7 @@ const Footer = () => (
             <Heading size="med">Job Seeker</Heading>
             <ul>
                 <li><Link href="/"><a>Find Jobs</a></Link></li>
-                <li><Link href="/"><a>Create Resumes</a></Link></li>
+                <li><Link href="/"><a>Create Resumes</a></Link></li>{/*disabled for now*/}
                 <li><Link href="/"><a>Sign In</a></Link></li>
             </ul>
             </Column>

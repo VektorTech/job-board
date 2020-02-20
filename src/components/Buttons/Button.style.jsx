@@ -11,10 +11,16 @@ export const ButtonDefault = styled.button`
     background-color: blue;
 `;
 
+export const Submit = styled(ButtonDefault)`
+    width: 100%;
+    height: 100%;
+    font-size: 1.8rem;
+`;
+
 export const SearchSubmit = styled(ButtonDefault)`
     width: 100%;
     height: 5rem;
- `;
+`;
 
 export const Apply = styled(ButtonDefault)`
     margin: 1rem 0;

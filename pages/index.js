@@ -12,7 +12,8 @@ library.add(fas, fab);
 
 import SearchPage from './Search/Search';
 import ViewJob from './ViewJobs/ViewJob.jsx';
-import Modal from '../src/components/Modal/Modal';
+
+import Modal from '../src/components/Modal/Login/Login';
 
 const App = () => {
     return(

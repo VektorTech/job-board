@@ -7,9 +7,9 @@ import {
     CheckBox
 } from './Search.style';
 
-import JobBlock from '../src/components/JobBlock/JobBlock';
-import TagBlock from '../src/components/Tag/Tag';
-import Heading from '../src/components/Other/Heading.style';
+import JobBlock from '../../src/components/JobBlock/JobBlock';
+import TagBlock from '../../src/components/Tag/Tag';
+import Heading from '../../src/components/Other/Heading.style';
 
 const asideStruct = {
     "City": [],

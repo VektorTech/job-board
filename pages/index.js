@@ -10,12 +10,14 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 
 library.add(fas, fab);
 
-import SearchPage from './Search';
-import ViewJob from './ViewJob.jsx';
+import SearchPage from './Search/Search';
+import ViewJob from './ViewJobs/ViewJob.jsx';
+import Modal from '../src/components/Modal/Modal';
 
 const App = () => {
     return(
         <>
+        <Modal show={true}></Modal>
         <Header />
         <br />
         <Banner_1 />

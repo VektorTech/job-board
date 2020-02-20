@@ -10,10 +10,10 @@ import {
     Ratings
 } from './ViewJob.style';
 
-import TagBlock from '../src/components/Tag/Tag';
-import { CompLogoImg } from '../src/components/Other/CompanyLogo.style';
-import Button from '../src/components/Buttons/Button';
-import Heading from '../src/components/Other/Heading.style';
+import TagBlock from '../../src/components/Tag/Tag';
+import { CompLogoImg } from '../../src/components/Other/CompanyLogo.style';
+import Button from '../../src/components/Buttons/Button';
+import Heading from '../../src/components/Other/Heading.style';
 
 const details = {
     "SALARY": "", "START DATE": "", "LOCATION": "Los Angeles"

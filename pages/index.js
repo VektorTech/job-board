@@ -17,11 +17,12 @@ import SignModal from '../src/components/Modal/Sign/Sign.jsx';
 import PostJob from './PostJob/PostJob';
 
 import Link from 'next/link';
+import UserProfile from './Profile/User/UserProfile';
 
 const App = () => {
     return(
         <>
-        <SignModal show={true} init='login'></SignModal>
+        {/* <SignModal show={true} init='login'></SignModal> */}
         
         <Header />
         <br />
@@ -30,6 +31,7 @@ const App = () => {
         {/* <SearchPage /> */}
         {/* <ViewJob /> */}
         {/* <PostJob /> */}
+        <UserProfile />
 
         <Footer />
         </>

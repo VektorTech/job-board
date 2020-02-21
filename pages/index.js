@@ -14,17 +14,20 @@ import SearchPage from './Search/Search';
 import ViewJob from './ViewJobs/ViewJob.jsx';
 
 import SignModal from '../src/components/Modal/Sign/Sign.jsx';
+import Link from 'next/link';
+import PostJob from './PostJob/PostJob';
 
 const App = () => {
     return(
         <>
-        <SignModal show={true} init='login'></SignModal>
+        {/* <SignModal show={true} init='login'></SignModal> */}
         <Header />
         <br />
         <Banner_1 />
 
         {/* <SearchPage /> */}
-        <ViewJob />
+        {/* <ViewJob /> */}
+        <PostJob />
 
         <Footer />
         </>

@@ -1,11 +1,7 @@
 import styled from "styled-components";
+import { PageContainer } from "../../src/components/Other/PageContainer.style";
 
-export const ViewJobContainer = styled.div`
-    width: 100%;
-    height: fit-content;
-    margin: 5rem 0;
-    padding: 4rem 15%;
-    
+export const ViewJobContainer = styled(PageContainer)`
     display: grid;
     grid-template-columns: .6fr repeat(4, 1fr);
     grid-auto-columns: 1fr;

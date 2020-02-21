@@ -1,11 +1,8 @@
 import styled from "styled-components";
+import { PageContainer } from "../../src/components/Other/PageContainer.style";
 
-export const SearchPageContainer = styled.div`
-    width: 100%;
+export const SearchPageContainer = styled(PageContainer)`
     height: 150rem;
-    margin: 5rem 0;
-    padding: 4rem 15%;
-    
     display: flex;
     flex-direction: row;
 `;

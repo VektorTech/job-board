@@ -10,7 +10,7 @@ import Button from '../../Buttons/Button';
 
 export default ({setRoute}) => (
     <PrimaryWrapper>
-        <Heading style={{textAlign:'center', marginBottom:'4rem'}} size={'lg'}>Register</Heading>
+        <Heading center style={{marginBottom:'4rem'}} size={'lg'}>Register</Heading>
 
         <InputContainer>
         <Button type="Submit">Social Media</Button>

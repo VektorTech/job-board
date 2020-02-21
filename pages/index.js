@@ -13,12 +13,12 @@ library.add(fas, fab);
 import SearchPage from './Search/Search';
 import ViewJob from './ViewJobs/ViewJob.jsx';
 
-import LoginModal from '../src/components/Modal/Login/Login';
+import SignModal from '../src/components/Modal/Sign/Sign.jsx';
 
 const App = () => {
     return(
         <>
-        {/* <LoginModal show={true}></LoginModal> */}
+        <SignModal show={true} init='login'></SignModal>
         <Header />
         <br />
         <Banner_1 />

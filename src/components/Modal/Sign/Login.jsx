@@ -4,13 +4,11 @@ import {
     CreateAccount
 } from './Login.style';
 
-import Modal from '../core/Modal';
 import { InputText } from '../../Other/Input.style';
 import Heading from '../../Other/Heading.style';
 import Button from '../../Buttons/Button';
 
-export default ({show}) => (
-    <Modal show={show}>
+export default ({setRoute}) => (
     <PrimaryWrapper>
         <Heading style={{textAlign:'center', marginBottom:'4rem'}} size={'lg'}>Login</Heading>
 
@@ -39,8 +37,7 @@ export default ({show}) => (
         </InputContainer>
         </form>
 
-        <CreateAccount>Create Account</CreateAccount>
+        <CreateAccount onClick={setRoute}>Create Account</CreateAccount>
 
     </PrimaryWrapper>
-    </Modal>
 );

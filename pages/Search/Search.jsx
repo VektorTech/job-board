@@ -27,8 +27,8 @@ const SearchPage = () => (
                 <TagBlock type="search">Cambridge</TagBlock>
             </SearchTagArea>
             
-            {Object.keys(asideStruct).map(key => (
-                <ul>
+            {Object.keys(asideStruct).map( (key, i) => (
+                <ul key={i}>
                 <Heading>Refine by {key}</Heading>
                 {asideStruct[key].map(item => (
                     <ListItem>

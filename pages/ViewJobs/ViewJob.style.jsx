@@ -50,13 +50,10 @@ export const HeadTag = styled.h1`
 `;
 
 export const Ratings = styled.p`
-    font-size: 2.5rem;
+    font-size: 2.3rem;
     font-weight: bold;
     padding-top: 1rem;
     color: green;
-    &::after {
-        content: ' *'
-    }
 `;
 
 export const Nav = styled.ul`

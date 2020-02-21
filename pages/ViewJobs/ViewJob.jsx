@@ -14,6 +14,7 @@ import TagBlock from '../../src/components/Tag/Tag';
 import { CompLogoImg } from '../../src/components/Other/CompanyLogo.style';
 import Button from '../../src/components/Buttons/Button';
 import Heading from '../../src/components/Other/Heading.style';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const details = {
     "SALARY": "", "START DATE": "", "LOCATION": "Los Angeles"
@@ -23,7 +24,7 @@ const ViewJob = () => (
     <ViewJobContainer>
         <CompLogo>
             <CompLogoImg src="/"/>
-            <Ratings>4.9</Ratings>
+            <Ratings>4.9 <FontAwesomeIcon style={{fontSize:'1.8rem'}} icon="star"/></Ratings>
         </CompLogo>
         <CompHeading>
             <Heading style={{height:"fit-content"}} size="lg">
@@ -36,7 +37,7 @@ const ViewJob = () => (
             </div>
             
             <Button type="Apply">Apply Now</Button>
-            <Button type="Save"> {"<3"} Save</Button>
+            <Button type="Save"><FontAwesomeIcon icon="heart"/> Save</Button>
         </CompHeading>
         <CompDetails>
             { Object.keys(details).map( key => (

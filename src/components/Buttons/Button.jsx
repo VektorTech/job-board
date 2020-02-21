@@ -6,13 +6,13 @@ import {
     SaveButton
 } from './Button.style';
 
-const Button = ({type, children}) => {
+const Button = ({type, children, onClick}) => {
     switch(type){
-        case "Search": return <SearchSubmit>{children}</SearchSubmit>
-        case "Submit": return <Submit>{children}</Submit>
-        case "Apply": return <Apply>{children}</Apply>
-        case "Save": return <SaveButton>{children}</SaveButton>
-        default: return <ButtonDefault>{children}</ButtonDefault>
+        case "Search": return <SearchSubmit onClick={onClick} >{children}</SearchSubmit>
+        case "Submit": return <Submit onClick={onClick} >{children}</Submit>
+        case "Apply": return <Apply onClick={onClick} >{children}</Apply>
+        case "Save": return <SaveButton onClick={onClick} >{children}</SaveButton>
+        default: return <ButtonDefault onClick={onClick} >{children}</ButtonDefault>
     }
 }; 
 

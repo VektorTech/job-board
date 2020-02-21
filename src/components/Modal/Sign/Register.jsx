@@ -1,38 +1,29 @@
 import {
     PrimaryWrapper,
     InputContainer,
-    CreateAccount
 } from './Login.style';
 
-import { InputText } from '../../Other/Input.style';
-import Heading from '../../Other/Heading.style';
+import RegisterCompany from './RegisterCompany';
+import RegisterUser from './RegisterUser';
+
 import Button from '../../Buttons/Button';
+import { useState } from 'react';
 
-export default ({setRoute}) => (
-    <PrimaryWrapper>
-        <Heading center style={{marginBottom:'4rem'}} size={'lg'}>Register</Heading>
+export default ({setRoute}) => {
+    const [state, setState] = useState(null);
 
-        <InputContainer>
-        <Button type="Submit">Social Media</Button>
-        </InputContainer>
+    const Elem = {
+        "company": <RegisterCompany setRoute={setRoute} />,
+        "user": <RegisterUser setRoute={setRoute} />
+    }
+    return ( state ? state :
+        <PrimaryWrapper>
+            <InputContainer>
+            <Button type="Submit" onClick={() => setState(Elem['company'])}>Employer</Button>
+            </InputContainer>
 
-        <hr style={{margin:'5% 0', height:'.22rem'}} color="#ddd" />
-        
-        <form>
-        <InputContainer>
-        <InputText placeholder="Email" />
-        </InputContainer>
-
-        <InputContainer>
-        <InputText placeholder="Password" />
-        </InputContainer>
-
-        <InputContainer>
-        <Button type="Submit">Create Account</Button>
-        </InputContainer>
-        </form>
-
-        <CreateAccount onClick={setRoute}>Already have an account?</CreateAccount>
-
-    </PrimaryWrapper>
-);
+            <InputContainer>
+            <Button type="Submit" onClick={() => setState(Elem['user'])}>Job Seeker</Button>
+            </InputContainer>
+        </PrimaryWrapper> );
+}

@@ -1,12 +1,47 @@
 import {
     PrimaryWrapper,
     InputContainer,
-    CreateAccount
+    Switch
 } from './Login.style';
 
 import { InputText } from '../../Other/Input.style';
 import Heading from '../../Other/Heading.style';
 import Button from '../../Buttons/Button';
+
+import validator from 'validator';
+
+const formHandler = e => {
+    e.preventDefault();
+
+    const form = document.forms['register'];
+
+    const data = {
+        email: form['email'].value,
+        password: form['password'].value,
+        name: form['name'].value,
+        sex: form['sex'].value,
+        phone: form['phone'].value,
+        address: form['address'].value,
+        avatar: form['avatar'].value
+    };
+
+    validator.isEmail(data.email);
+
+    // try {
+    //     Object.keys(data).forEach( key => {
+    //         if( !patterns[key].test(data[key]) ){
+    //             if(form[key].style) form[key].style.border = '1px solid red';
+    //             throw new Error(data[key] + ' is invalid.');
+    //         } else {
+    //             if(form[key].style) form[key].style.border = 'none';
+    //         }
+    //     } );
+    //     console.log('hey');
+    // } catch(e) {
+    //     console.log(e);
+    // }
+
+};
 
 export default ({setRoute}) => (
     <PrimaryWrapper>
@@ -18,31 +53,31 @@ export default ({setRoute}) => (
 
         <hr style={{margin:'5% 0', height:'.22rem'}} color="#ddd" />
         
-        <form>
+        <form name='register'>
         <InputContainer>
-        <InputText placeholder="Email" />
+        <InputText type='email' name='email' placeholder="Email" />
         </InputContainer>
 
         <InputContainer>
-        <InputText placeholder="Password" />
+        <InputText type='password' name='password' placeholder="Password"/>
         </InputContainer>
 
         <InputContainer>
-        <InputText placeholder="Full Name" />
+        <InputText name='name' placeholder="Full Name"/>
         </InputContainer>
 
         <InputContainer>
             <Heading>Sex:</Heading>
-            <input type="radio" name="Male" id=""/><label>Male</label>
-            <input type="radio" name="Female" id=""/><label>Female</label>
+            <input type="radio" value='m' name="sex" id=""/><label>Male</label>
+            <input type="radio" value='f' name="sex" id=""/><label>Female</label>
         </InputContainer>
 
         <InputContainer>
-        <InputText placeholder="Phone" />
+        <InputText name='phone' placeholder="Phone" />
         </InputContainer>
 
         <InputContainer>
-        <InputText placeholder="Address" />
+        <InputText name='address' placeholder="Address" />
         </InputContainer>
 
         <InputContainer>
@@ -50,11 +85,11 @@ export default ({setRoute}) => (
         </InputContainer>
 
         <InputContainer>
-        <Button type="Submit">Create Account</Button>
+        <Button onClick={formHandler} type="Submit">Create Account</Button>
         </InputContainer>
         </form>
 
-        <CreateAccount onClick={setRoute}>Already have an account?</CreateAccount>
+        <Switch onClick={setRoute}>Already have an account?</Switch>
 
     </PrimaryWrapper>
 );

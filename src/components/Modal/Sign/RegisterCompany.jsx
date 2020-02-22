@@ -1,7 +1,7 @@
 import {
     PrimaryWrapper,
     InputContainer,
-    CreateAccount
+    Switch
 } from './Login.style';
 
 import { InputText } from '../../Other/Input.style';
@@ -32,7 +32,7 @@ export default ({setRoute}) => (
         </InputContainer>
         </form>
 
-        <CreateAccount onClick={setRoute}>Already have an account?</CreateAccount>
+        <Switch onClick={setRoute}>Already have an account?</Switch>
 
     </PrimaryWrapper>
 );

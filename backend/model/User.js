@@ -2,7 +2,6 @@ const Sequelize = require('sequelize');
 const sequelize = require('../db_connection');
 
 const User = sequelize.define('user', {
-    // attributes
     email: {
       type: Sequelize.STRING(100),
       allowNull: false
@@ -16,7 +15,8 @@ const User = sequelize.define('user', {
       allowNull: false
     },
     sex: {
-      type: Sequelize.STRING(1)
+      type: Sequelize.STRING(1),
+      allowNull: false
     },
     phone: {
       type: Sequelize.STRING(25)
@@ -27,6 +27,15 @@ const User = sequelize.define('user', {
     avatar: {
       type: Sequelize.BLOB
     },
+    saved_jobs: {
+      type: Sequelize.STRING,
+      get() {
+        return this.getDataValue('saved_jobs').split(';')
+      },
+      set(val) {
+        this.setDataValue('saved_jobs', val.join(';'));
+      }
+    }
 }, {});    
 
 module.exports = User;

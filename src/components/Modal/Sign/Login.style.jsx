@@ -2,8 +2,9 @@ import styled from 'styled-components';
 
 export const PrimaryWrapper = styled.div`
     width: 100%;
-    height: 100%;
+    height: 90%;
     padding: 2% 5%;
+    overflow: auto;
 `;
 
 export const InputContainer = styled.div`

@@ -28,6 +28,28 @@ export default ({setRoute}) => (
         </InputContainer>
 
         <InputContainer>
+        <InputText placeholder="Full Name" />
+        </InputContainer>
+
+        <InputContainer>
+            <Heading>Sex:</Heading>
+            <input type="radio" name="Male" id=""/><label>Male</label>
+            <input type="radio" name="Female" id=""/><label>Female</label>
+        </InputContainer>
+
+        <InputContainer>
+        <InputText placeholder="Phone" />
+        </InputContainer>
+
+        <InputContainer>
+        <InputText placeholder="Address" />
+        </InputContainer>
+
+        <InputContainer>
+        <input type="file" name="avatar" id="" accept="image/*"/>
+        </InputContainer>
+
+        <InputContainer>
         <Button type="Submit">Create Account</Button>
         </InputContainer>
         </form>

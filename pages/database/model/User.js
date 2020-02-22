@@ -1,7 +1,7 @@
-const Sequelize = require('sequelize');
-const sequelize = require('../db_connection');
+import Sequelize from 'sequelize';
+import sequelize from '../database';
 
-const User = sequelize.define('user', {
+export default sequelize.define('user', {
     email: {
       type: Sequelize.STRING(100),
       allowNull: false
@@ -36,6 +36,4 @@ const User = sequelize.define('user', {
         this.setDataValue('saved_jobs', val.join(';'));
       }
     }
-}, {});    
-
-module.exports = User;
+}, {});

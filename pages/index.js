@@ -19,6 +19,19 @@ import PostJob from './PostJob/PostJob';
 import Link from 'next/link';
 import UserProfile from './Profile/User/UserProfile';
 
+
+// const sequelize = require('./db_connection');
+
+// sequelize
+//   .authenticate()
+//   .then(() => {
+//     console.log('Connection has been established successfully.');
+//   })
+//   .catch(err => {
+//     console.error('Unable to connect to the database:', err);
+// });
+
+
 const App = () => {
     return(
         <>

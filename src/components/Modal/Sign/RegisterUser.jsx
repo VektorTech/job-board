@@ -8,22 +8,29 @@ import { InputText } from '../../Other/Input.style';
 import Heading from '../../Other/Heading.style';
 import Button from '../../Buttons/Button';
 
-import validator from 'validator';
+import fetch from 'isomorphic-unfetch';
 
 const formHandler = e => {
     e.preventDefault();
+    
+    const form = document.forms['register'];
+    const data = {
+        email: form['email'].value,
+        password: form['password'].value,
+        name: form['name'].value,
+        sex: form['sex'].value,
+        phone: form['phone'].value,
+        address: form['address'].value,
+        avatar: form['avatar'].value
+    };
+    
+    fetch('/api/register', {
+            method:"POST",
+            body: JSON.stringify(data)
+        }).then(res => res.json())
+          .then(console.log);
+    
 
-    // const form = document.forms['register'];
-
-    // const data = {
-    //     email: form['email'].value,
-    //     password: form['password'].value,
-    //     name: form['name'].value,
-    //     sex: form['sex'].value,
-    //     phone: form['phone'].value,
-    //     address: form['address'].value,
-    //     avatar: form['avatar'].value
-    // };
 
     // validator.isEmail(data.email);
 

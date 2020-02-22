@@ -1,6 +1,6 @@
-const User = require('../model/User');
+import User from '../../middlewares/model/User';
 
-const register = () => {
+export const register = () => {
     User.sync().then(() => {
         return User.create({
           email: '',
@@ -12,8 +12,4 @@ const register = () => {
           avatar: ''
         });
     }).then();
-}
-
-module.exports = {
-  register: register
 }

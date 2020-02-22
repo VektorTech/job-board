@@ -1,4 +1,4 @@
-import User from '../../middlewares/model/User';
+import User from '../model/User';
 
 export const register = () => {
     User.sync().then(() => {

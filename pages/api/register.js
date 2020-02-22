@@ -1,15 +1,15 @@
 import nextConnect from 'next-connect';
 
 const handler = nextConnect();
-import { register } from '../database/controllers/auth';
+import { register } from '../middlewares/auth';
 
 handler.use((req, res, next) => {
+  req.body = JSON.parse(req.body);
   //validate
   return next();
-}).post((req, res) => {
-  register( req.body );
+}).use(register).post((req, res) => {
+  res.send("Success!")
   // res.json({"test":"out"});
-  // register();
 });
 
 export default handler;

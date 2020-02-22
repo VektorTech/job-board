@@ -2,6 +2,10 @@ import Sequelize from 'sequelize';
 import sequelize from '../database';
 
 export default sequelize.define('user', {
+    id: {
+      type: Sequelize.STRING(20),
+      primaryKey: true,
+    },
     email: {
       type: Sequelize.STRING(100),
       allowNull: false

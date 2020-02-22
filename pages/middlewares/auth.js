@@ -1,10 +1,11 @@
 import User from '../database/model/User';
 
 export const register = (req, res, next) => {
-  const { email, password, name, sex, phone, address, avatar } = req.body;
+  const { id, email, password, name, sex, phone, address, avatar } = req.body;
 
   User.sync().then(() => {
       return User.create({
+        id,
         email,
         password,
         name,
@@ -14,4 +15,6 @@ export const register = (req, res, next) => {
         avatar
       });
   });
+
+  return next();
 }

@@ -27,7 +27,7 @@ const formHandler = e => {
     fetch('/api/register', {
             method:"POST",
             body: JSON.stringify(data)
-        }).then(res => res.json())
+        }).then(res => res.text())
           .then(console.log);
     
 

@@ -1,7 +1,7 @@
 import nextConnect from 'next-connect';
 
 const handler = nextConnect();
-import { register } from '../middlewares/auth';
+import { register } from '../database/middlewares/auth';
 
 handler.use((req, res, next) => {
   req.body = JSON.parse(req.body);

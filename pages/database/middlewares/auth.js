@@ -1,20 +1,13 @@
-import User from '../database/model/User';
+import registerUser from './controllers/registerUser';
+import registerCompany from './controllers/registerCompany';
 
 export const register = (req, res, next) => {
-  const { id, email, password, name, sex, phone, address, avatar } = req.body;
+  const { type } = req.body;
 
-  User.sync().then(() => {
-      return User.create({
-        id,
-        email,
-        password,
-        name,
-        sex,
-        phone,
-        address,
-        avatar
-      });
-  });
+  switch(type){
+    case "company": registerCompany(req.body); break;
+    case "user": registerUser(req.body); break;
+  }
 
   return next();
 }

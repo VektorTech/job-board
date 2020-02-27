@@ -21,7 +21,8 @@ const formHandler = e => {
         sex: form['sex'].value,
         phone: form['phone'].value,
         address: form['address'].value,
-        avatar: form['avatar'].value
+        avatar: form['avatar'].value,
+        type: "user"
     };
     
     fetch('/api/register', {

@@ -35,7 +35,7 @@ import UserProfile from './Profile/User/UserProfile';
 const App = () => {
     return(
         <>
-        <SignModal show={true} init='login'></SignModal>
+        {/* <SignModal show={true} init='login'></SignModal> */}
         
         <Header />
         <br />

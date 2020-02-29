@@ -1,7 +1,7 @@
-import Company from '../database/model/Company';
+import Company from '../../models/Company';
 
-export default () => {
-    const { id, email, password, name, description, website, phone, address, logo } = req.body;
+export default (data) => {
+    const { id, email, password, name, description, website, phone, address, logo } = data;
 
     Company.sync().then(() => {
         return User.create({

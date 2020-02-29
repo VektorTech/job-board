@@ -19,9 +19,7 @@ const Header = () => (
                 <NavItem><Link href="/"><a>Resume Search</a></Link></NavItem>
             </Nav>
             <Nav>
-                <NavItem><Link href="/"><a>Sign In</a></Link></NavItem>
-                <span>|</span>
-                <NavItem><Link href="/"><a>Sign Up</a></Link></NavItem>
+                <NavItem><a href="/?signin=true">Sign In</a></NavItem>
             </Nav>
         </HeaderInner>
     </HeaderWrapper>

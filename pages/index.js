@@ -17,6 +17,7 @@ import SignModal from '../src/components/Modal/Sign/Sign.jsx';
 import PostJob from './PostJob/PostJob';
 
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import UserProfile from './Profile/User/UserProfile';
 
 
@@ -35,7 +36,7 @@ import UserProfile from './Profile/User/UserProfile';
 const App = () => {
     return(
         <>
-        {/* <SignModal show={true} init='login'></SignModal> */}
+        { useRouter().query['signin'] ? <SignModal show={true} init='login'></SignModal> : null }
         
         <Header />
         <br />

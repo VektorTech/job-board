@@ -8,6 +8,24 @@ import { InputText } from '../../Other/Input.style';
 import Heading from '../../Other/Heading.style';
 import Button from '../../Buttons/Button';
 
+const formHandler = e => {
+    e.preventDefault();
+    
+    const form = document.forms['login'];
+    const data = {
+        email: form['email'].value,
+        password: form['password'].value,
+        type: "user"
+    };
+    
+    fetch('/api/signin', {
+            method:"POST",
+            credentials: "same-origin",
+            body: JSON.stringify(data)
+        }).then(res => res.text())
+          .then(console.log);
+}
+
 export default ({setRoute}) => (
     <PrimaryWrapper>
         <Heading center style={{marginBottom:'4rem'}} size={'lg'}>Login</Heading>
@@ -18,13 +36,13 @@ export default ({setRoute}) => (
 
         <hr style={{margin:'5% 0', height:'.22rem'}} color="#ddd" />
         
-        <form>
+        <form name='login'>
         <InputContainer>
-        <InputText placeholder="Email" />
+        <InputText type='email' name='email' placeholder="Email" />
         </InputContainer>
 
         <InputContainer>
-        <InputText placeholder="Password" />
+        <InputText type='password' name='password' placeholder="Password" />
         </InputContainer>
 
         <div>
@@ -33,7 +51,7 @@ export default ({setRoute}) => (
         </div>
 
         <InputContainer>
-        <Button type="Submit">Sign In</Button>
+        <Button onClick={formHandler} type="Submit">Sign In</Button>
         </InputContainer>
         </form>
 

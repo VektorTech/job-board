@@ -1,7 +1,7 @@
-import User from '../database/model/User';
+import User from '../../models/User';
 
-export default () => {
-    const { id, email, password, name, sex, phone, address, avatar } = req.body;
+export default (data) => {
+    const { id, email, password, name, sex, phone, address, avatar } = data;
 
     User.sync().then(() => {
         return User.create({

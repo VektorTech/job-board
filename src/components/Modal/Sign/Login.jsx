@@ -7,6 +7,7 @@ import {
 import { InputText } from '../../Other/Input.style';
 import Heading from '../../Other/Heading.style';
 import Button from '../../Buttons/Button';
+import Router from 'next/router';
 
 const formHandler = e => {
     e.preventDefault();
@@ -22,8 +23,11 @@ const formHandler = e => {
             method:"POST",
             credentials: "same-origin",
             body: JSON.stringify(data)
-        }).then(res => res.text())
-          .then(console.log);
+        }).then(res => res.json())
+          .then(res => {
+              document.cookie=`access_token=${res['access_token']}`;
+              Router.push('/profile/user/userprofile');
+            });
 }
 
 export default ({setRoute}) => (

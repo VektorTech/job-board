@@ -7,7 +7,11 @@ import {
 } from '../Profile.style';
 import Heading from '../../../src/components/Other/Heading.style';
 
-export default () => {
+import JWT from 'jsonwebtoken';
+import { ACCESS_TOKEN_SECRET } from '../../api/config';
+import withLayout from '../../../src/components/hoc/withLayout';
+
+const UserProfile = () => {
     return (
         <PageWrapper>
             <Aside>
@@ -24,3 +28,23 @@ export default () => {
         </PageWrapper>
     );
 }
+
+UserProfile.getInitialProps = ctx => {
+    try {
+        const token = ctx.req.headers.cookie.split('=')[1];
+        JWT.verify(token, ACCESS_TOKEN_SECRET, (err, decoded) => {
+            if(err){
+                throw "";       
+            } else {
+                console.log("success", decoded);  
+            }
+        }); 
+    } catch(err) {
+        ctx.res.write("FORBIDDEN!!!");
+        ctx.res.end();
+    } finally {
+        return {};
+    }
+}
+
+export default withLayout(UserProfile);

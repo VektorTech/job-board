@@ -4,7 +4,6 @@ import cookieDef from '../database/middlewares/cookieDef';
 
 const handler = nextConnect();
 
-
 handler.use(cookieDef).use((req, res, next) => {
   req.body = JSON.parse(req.body);
   //validate

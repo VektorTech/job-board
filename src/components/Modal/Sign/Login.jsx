@@ -21,11 +21,11 @@ const formHandler = e => {
     
     fetch('/api/signin', {
             method:"POST",
-            credentials: "include",
+            credentials: "same-origin",
             body: JSON.stringify(data)
-        }).then(res => res.json())
+        }).then(res => res.text())
           .then(res => {
-              document.cookie=`access_token=${res['access_token']}`;
+              document.cookie=`access-token=${res}`;
               Router.push('/profile/user/userprofile');
             });
 }

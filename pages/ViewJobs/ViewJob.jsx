@@ -15,7 +15,6 @@ import { CompLogoImg } from '../../src/components/Other/CompanyLogo.style';
 import Button from '../../src/components/Buttons/Button';
 import Heading from '../../src/components/Other/Heading.style';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import withLayout from '../../src/components/hoc/withLayout';
 
 const details = {
     "SALARY": "", "START DATE": "", "LOCATION": "Los Angeles"
@@ -73,4 +72,4 @@ const ViewJob = () => (
     </ViewJobContainer>
 );
 
-export default withLayout(ViewJob);
+export default ViewJob;

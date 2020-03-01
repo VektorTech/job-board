@@ -10,7 +10,6 @@ import {
 import JobBlock from '../../src/components/JobBlock/JobBlock';
 import TagBlock from '../../src/components/Tag/Tag';
 import Heading from '../../src/components/Other/Heading.style';
-import withLayout from '../../src/components/hoc/withLayout';
 
 const asideStruct = {
     "City": [],
@@ -54,4 +53,4 @@ const SearchPage = () => (
     </SearchPageContainer>
 );
 
-export default withLayout(SearchPage);
+export default SearchPage;

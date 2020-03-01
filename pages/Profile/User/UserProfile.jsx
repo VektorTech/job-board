@@ -9,7 +9,6 @@ import Heading from '../../../src/components/Other/Heading.style';
 
 import JWT from 'jsonwebtoken';
 import { ACCESS_TOKEN_SECRET } from '../../api/config';
-import withLayout from '../../../src/components/hoc/withLayout';
 
 const UserProfile = () => {
     return (
@@ -47,4 +46,4 @@ UserProfile.getInitialProps = ctx => {
     }
 }
 
-export default withLayout(UserProfile);
+export default UserProfile;

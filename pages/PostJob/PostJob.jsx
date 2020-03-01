@@ -11,7 +11,6 @@ import {
 import { InputText } from '../../src/components/Other/Input.style';
 import Heading from '../../src/components/Other/Heading.style';
 import Button from '../../src/components/Buttons/Button';
-import withLayout from '../../src/components/hoc/withLayout';
 
 const PostJob = () => {
     return (
@@ -31,4 +30,4 @@ const PostJob = () => {
     );
 }
 
-export default withLayout(PostJob);
+export default PostJob;

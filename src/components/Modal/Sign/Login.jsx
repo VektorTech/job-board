@@ -21,7 +21,7 @@ const formHandler = e => {
     
     fetch('/api/signin', {
             method:"POST",
-            credentials: "same-origin",
+            credentials: "include",
             body: JSON.stringify(data)
         }).then(res => res.json())
           .then(res => {

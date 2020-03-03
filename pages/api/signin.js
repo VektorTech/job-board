@@ -9,7 +9,9 @@ handler.use(cookieDef).use((req, res, next) => {
   //validate
   return next();
 }).use(signin).post((req, res) => {
-  
+  const future = new Date(new Date().getTime() + (1000*60*60*24*30*3));
+  res.cookie('refresh-token', req.refresh_token, { httpOnly:true, path: '/', expiration: future });
+  res.json({ token: req.access_token, session_data: req.user });
 });
 
 export default handler;

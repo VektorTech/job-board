@@ -23,10 +23,11 @@ const formHandler = e => {
             method:"POST",
             credentials: "same-origin",
             body: JSON.stringify(data)
-        }).then(res => res.text())
+        }).then(res => res.json())
           .then(res => {
-              document.cookie=`access-token=${res}`;
-              Router.push('/profile/user/userprofile');
+              document.cookie=`access-token=${res.token}`;
+              localStorage.setItem('session', JSON.stringify(res.session_data));
+              location.href = '/';
             });
 }
 

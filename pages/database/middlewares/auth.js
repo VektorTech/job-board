@@ -3,7 +3,7 @@ import registerCompany from './controllers/registerCompany';
 import signinUser from './controllers/signinUser';
 // import signinCompany from './controllers/signinCompany';
 import JWT, { decode } from 'jsonwebtoken';
-import { REFRESH_TOKEN_SECRET, ACCESS_TOKEN_SECRET, REFRESH_TOKEN_SECRET_COMP } from '../../api/config';
+import { REFRESH_TOKEN_SECRET, ACCESS_TOKEN_SECRET } from '../../api/config';
 
 const $_SESSION = {};
 
@@ -42,23 +42,18 @@ export const register = (req, res, next) => {
   return next();
 }
 
-export const signin = (req, res, next) => {
+export const signin = async (req, res, next) => {
   const { type } = req.body;
 
   switch(type){
     // case "company": signinCompany(req.body); break;
     case "user": 
-      signinUser(req.body).then( data => {
+      await signinUser(req.body).then( data => {
         $_SESSION[data.id] = data;  
 
-        const refreshToken = JWT.sign({ 'id': data.id, 'name': data.name, 'email': data.email }, REFRESH_TOKEN_SECRET, { algorithm: 'HS256', expiresIn:"14d" });
-        const accessToken = generateAccessToken({ 'id': data.id, 'name': data.name, 'user': 'user' });
-
-        // console.log(req.cookies);
-        const future = new Date(new Date().getTime() + (1000*60*60*24*30*3));
-        res.cookie('refresh-token', refreshToken, { httpOnly:true, path: '/', expiration: future })
-        res.end(accessToken);
-
+        req.refresh_token = JWT.sign({ 'id': data.id, 'name': data.name, 'email': data.email }, REFRESH_TOKEN_SECRET, { algorithm: 'HS256', expiresIn:"14d" });
+        req.access_token = generateAccessToken({ 'id': data.id, 'name': data.name, 'user': 'user' });
+        req.user = { name: data.name, type: type }; //avatar etc.
       }).catch(console.log);
       break;
   }

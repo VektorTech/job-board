@@ -6,6 +6,11 @@ import {
 
 import Link from 'next/link';
 
+const onLoad = () => {
+    if(process.browser){
+        return JSON.parse(localStorage.getItem('session'));
+    } return false;
+}
 const Header = () => (
     <HeaderWrapper id="#top">
         <HeaderInner>
@@ -15,11 +20,18 @@ const Header = () => (
             <Nav>
                 <NavItem><Link href="/"><a>Jobs</a></Link></NavItem>
                 <NavItem><Link href="/"><a>Companies</a></Link></NavItem>
-                <NavItem><Link href="/"><a>Post a job</a></Link></NavItem>
+                <NavItem><Link href="/postjob/postjob"><a>Post a job</a></Link></NavItem>
                 <NavItem><Link href="/"><a>Resume Search</a></Link></NavItem>
             </Nav>
             <Nav>
-                <NavItem><a href="/?signin=true">Sign In</a></NavItem>
+                <NavItem>
+                    {
+                    onLoad() ? 
+                    <a href={'/profile/user/'+onLoad()['type']+'profile'}>{onLoad()['name']}</a>
+                    :
+                    <a href="/?signin=true">Sign In</a>
+                    }
+                </NavItem>
             </Nav>
         </HeaderInner>
     </HeaderWrapper>

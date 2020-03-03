@@ -12,14 +12,22 @@ const generateAccessToken = (data) => {
 }
 
 export const getSession = (req, res, next) => {
-  switch(req.user){
+  console.log($_SESSION)
+  switch(req.body.user){
     case "user":
-      JWT.verify(req.body.token, ACCESS_TOKEN_SECRET, (err, decoded) => {
-        if(err) throw err;
-        req.session = $_SESSION[decoded.id];
-      });
+      try {
+        JWT.verify(req.body.refresh_token, REFRESH_TOKEN_SECRET, (err, decoded) => {
+          if (err || req.body.user !== 'user') throw err;
+
+          JWT.verify(req.body.access_token, ACCESS_TOKEN_SECRET, (err) => {
+            if (err) req.token = generateAccessToken({ 'id': decoded.id, 'name': decoded.name, 'user': 'user' });
+            req.session = $_SESSION[decoded.id] || {};
+          });
+        });
+      } catch(err) {
+        req.err = err.message;
+      }
   }
-  
   return next();
 }
 
@@ -34,30 +42,6 @@ export const register = (req, res, next) => {
   return next();
 }
 
-export const token = (req, res, next) => {
-  switch(req.user){
-    case "user": 
-      try{
-        JWT.verify(req.body.token, REFRESH_TOKEN_SECRET, (err, decoded) => {
-          if(err || req.user !== 'user') throw err;
-          req.token = generateAccessToken({ 'id': decoded.id, 'name': decoded.name, 'user': 'user' });
-        });
-      } catch(err) {
-        req.err = err.message;
-      }
-    case "company": 
-      try{
-        JWT.verify(req.body.token, REFRESH_TOKEN_SECRET_COMP, (err, decoded) => {
-          if(err || req.user !== 'company') throw err;
-          req.token = generateAccessToken({ 'id': decoded.id, 'name': decoded.name, 'user': 'company' });
-        });
-      } catch(err) {
-        req.err = err.message;
-      }
-    }
-    return next();
-}
-
 export const signin = (req, res, next) => {
   const { type } = req.body;
 
@@ -67,7 +51,7 @@ export const signin = (req, res, next) => {
       signinUser(req.body).then( data => {
         $_SESSION[data.id] = data;  
 
-        const refreshToken = JWT.sign({ 'id': data.id, 'name': data.name, 'email': data.email }, REFRESH_TOKEN_SECRET, { algorithm: 'HS256' });
+        const refreshToken = JWT.sign({ 'id': data.id, 'name': data.name, 'email': data.email }, REFRESH_TOKEN_SECRET, { algorithm: 'HS256', expiresIn:"14d" });
         const accessToken = generateAccessToken({ 'id': data.id, 'name': data.name, 'user': 'user' });
 
         // console.log(req.cookies);

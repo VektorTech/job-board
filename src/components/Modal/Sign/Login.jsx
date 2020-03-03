@@ -49,10 +49,10 @@ export default ({setRoute}) => (
         <InputText type='password' name='password' placeholder="Password" />
         </InputContainer>
 
-        <div>
+        {/* <div>
         <input type="checkbox" id="remember" name="remember"/>
         <label for="remember">Remember Me</label>
-        </div>
+        </div> */}
 
         <InputContainer>
         <Button onClick={formHandler} type="Submit">Sign In</Button>

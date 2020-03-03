@@ -7,12 +7,9 @@ import {
 } from '../Profile.style';
 import Heading from '../../../src/components/Other/Heading.style';
 
-import JWT from 'jsonwebtoken';
-import { ACCESS_TOKEN_SECRET } from '../../api/config';
-import fetch from 'isomorphic-unfetch';
 import Auth from '../../Auth';
 
-const UserProfile = () => {
+const UserProfile = ({ name }) => {
     return (
         <PageWrapper>
             <Aside>
@@ -23,7 +20,7 @@ const UserProfile = () => {
 
             <Main>
                 <ContentWrapper>
-                    <Heading size='md'>John B</Heading>
+                    <Heading size='md'>{name}</Heading>
                 </ContentWrapper>
             </Main>
         </PageWrapper>
@@ -31,7 +28,7 @@ const UserProfile = () => {
 }
 
 UserProfile.getInitialProps = ctx => {
-    return Auth(ctx);
+    return Auth(ctx, 'user');
 }
 
 export default UserProfile;

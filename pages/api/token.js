@@ -1,5 +1,5 @@
 import nextConnect from 'next-connect';
-import { token } from '../database/middlewares/auth';
+import { user_token } from '../database/middlewares/auth';
 
 const handler = nextConnect();
 
@@ -8,7 +8,9 @@ handler.use((req, res, next) => {
     req.body = JSON.parse(req.body);
     return next();
 }).use(token).post((req, res) => {
-    res.json({'access-token': req.token});
+    if(req.err) res.json({ 'err': req.err });
+    else
+      res.json({'access-token': req.token});
 });
 
 export default handler;

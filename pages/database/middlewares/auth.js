@@ -12,10 +12,14 @@ const generateAccessToken = (data) => {
 }
 
 export const getSession = (req, res, next) => {
-  JWT.verify(req.body.token, ACCESS_TOKEN_SECRET, (err, decoded) => {
-    if(err) throw err;
-    req.session = $_SESSION[decoded.id];
-  });
+  switch(req.user){
+    case "user":
+      JWT.verify(req.body.token, ACCESS_TOKEN_SECRET, (err, decoded) => {
+        if(err) throw err;
+        req.session = $_SESSION[decoded.id];
+      });
+  }
+  
   return next();
 }
 
@@ -41,8 +45,6 @@ export const token = (req, res, next) => {
       } catch(err) {
         req.err = err.message;
       }
-      return next();
-
     case "company": 
       try{
         JWT.verify(req.body.token, REFRESH_TOKEN_SECRET_COMP, (err, decoded) => {
@@ -52,8 +54,8 @@ export const token = (req, res, next) => {
       } catch(err) {
         req.err = err.message;
       }
-      return next();
-  }
+    }
+    return next();
 }
 
 export const signin = (req, res, next) => {

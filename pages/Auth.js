@@ -12,7 +12,7 @@ export default async (ctx, access) => {
         });
 
         JWT.verify(cookies['access-token'], ACCESS_TOKEN_SECRET, (err, decoded) => {
-            if(err || decoded.user !== access) throw err;
+            if(err || decoded.user != access) throw err;
         }); 
     } catch(err) {
         const data = await fetch('http://localhost:3000/api/token', {
@@ -32,7 +32,7 @@ export default async (ctx, access) => {
         if(cookies['access-token']){
             const data = await fetch('http://localhost:3000/api/session', {
                 method:"POST",
-                body: JSON.stringify({ token: cookies['access-token'] })
+                body: JSON.stringify({ token: cookies['access-token'], user: access })
             }).then(res => res.json());
 
             return data;

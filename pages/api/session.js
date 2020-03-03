@@ -8,6 +8,7 @@ handler.use((req, res, next) => {
   //validate
   return next();
 }).use(getSession).post((req, res) => {
+    res.status(200);
     res.json(req.session);
 });
 

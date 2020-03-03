@@ -1,5 +1,5 @@
 import nextConnect from 'next-connect';
-import { user_token } from '../database/middlewares/auth';
+import { token } from '../database/middlewares/auth';
 
 const handler = nextConnect();
 

@@ -1,7 +1,7 @@
 import Sequelize from 'sequelize';
 import sequelize from '../database';
 
-export default sequelize.define('compnay', {
+export default sequelize.define('company', {
     id: {
       type: Sequelize.STRING(20),
       primaryKey: true,

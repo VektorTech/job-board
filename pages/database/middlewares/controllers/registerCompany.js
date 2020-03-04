@@ -4,7 +4,7 @@ export default (data) => {
     const { id, email, password, name, description, website, phone, address, logo } = data;
 
     Company.sync().then(() => {
-        return User.create({
+        return Company.create({
             id,
             email,
             password,

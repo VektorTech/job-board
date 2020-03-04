@@ -20,3 +20,10 @@ export const Switch = styled.button`
     background: none;
     border: none;
 `;
+
+export const Description = styled.textarea`
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+`;

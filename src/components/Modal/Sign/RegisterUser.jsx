@@ -29,7 +29,7 @@ const formHandler = e => {
             method:"POST",
             body: JSON.stringify(data)
         }).then(res => res.text())
-          .then(console.log);
+          .then( res => location.reload() );
     
 
 

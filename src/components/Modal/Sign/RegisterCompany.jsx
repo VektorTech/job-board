@@ -1,7 +1,7 @@
 import {
     PrimaryWrapper,
     InputContainer,
-    Switch
+    Switch, Description
 } from './Login.style';
 
 import { InputText } from '../../Other/Input.style';
@@ -16,6 +16,7 @@ const formHandler = e => {
         email: form['email'].value,
         password: form['password'].value,
         name: form['name'].value,
+        description: form['description'].value,
         website: form['website'].value,
         phone: form['phone'].value,
         address: form['address'].value,
@@ -27,7 +28,7 @@ const formHandler = e => {
             method:"POST",
             body: JSON.stringify(data)
         }).then(res => res.text())
-          .then(console.log);
+          .then( res => location.reload() );
 }
 
 export default ({setRoute}) => (
@@ -40,7 +41,7 @@ export default ({setRoute}) => (
 
         <hr style={{margin:'5% 0', height:'.22rem'}} color="#ddd" />
         
-        <form>
+        <form name='register'>
         <InputContainer>
         <InputText type='email' name='email' placeholder="Email" />
         </InputContainer>
@@ -48,6 +49,14 @@ export default ({setRoute}) => (
         <InputContainer>
         <InputText type='password' name='password' placeholder="Password"/>
         {/*confirm pw*/}
+        </InputContainer>
+
+        <InputContainer>
+        <InputText name='name' placeholder="Company Name" />
+        </InputContainer>
+
+        <InputContainer style={{height: '15rem'}}>
+        <Description name='description' placeholder='Describe Company'></Description>
         </InputContainer>
 
         <InputContainer>

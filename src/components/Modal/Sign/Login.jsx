@@ -7,16 +7,16 @@ import {
 import { InputText } from '../../Other/Input.style';
 import Heading from '../../Other/Heading.style';
 import Button from '../../Buttons/Button';
-import Router from 'next/router';
 
 const formHandler = e => {
     e.preventDefault();
+
     
     const form = document.forms['login'];
     const data = {
         email: form['email'].value,
         password: form['password'].value,
-        type: "user"
+        type: form['type'].value
     };
     
     fetch('/api/signin', {
@@ -54,6 +54,9 @@ export default ({setRoute}) => (
         <input type="checkbox" id="remember" name="remember"/>
         <label for="remember">Remember Me</label>
         </div> */}
+
+        <input type='radio' name='type' value='company'/><label>Company</label>
+        <input type='radio' name='type' value='user'/><label>User</label>
 
         <InputContainer>
         <Button onClick={formHandler} type="Submit">Sign In</Button>

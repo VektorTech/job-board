@@ -2,7 +2,8 @@ import registerUser from './controllers/registerUser';
 import registerCompany from './controllers/registerCompany';
 import signinUser from './controllers/signinUser';
 import signinCompany from './controllers/signinCompany';
-import JWT, { decode } from 'jsonwebtoken';
+import JWT from 'jsonwebtoken';
+
 import { 
   ACCESS_TOKEN_SECRET,
   COMPANY_ACCESS_TOKEN_SECRET,

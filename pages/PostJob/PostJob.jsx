@@ -11,6 +11,7 @@ import {
 import { InputText } from '../../src/components/Other/Input.style';
 import Heading from '../../src/components/Other/Heading.style';
 import Button from '../../src/components/Buttons/Button';
+import fetch from 'isomorphic-unfetch';
 
 const formHandler = e => {
     e.preventDefault();
@@ -20,6 +21,7 @@ const formHandler = e => {
         title: form['title'].value,
         salary: form['salary'].value,
         start: form['start'].value,
+        time: form['time'].value,
         location: form['location'].value,
         description: form['description'].value,
     };
@@ -28,7 +30,7 @@ const formHandler = e => {
             method:"POST",
             credentials: "same-origin",
             body: JSON.stringify(data)
-        }).then(res => location.href = '/');
+        });//.then(res => location.href = '/');
 }
 
 const PostJob = () => {
@@ -39,12 +41,22 @@ const PostJob = () => {
             <JobTitle> <InputText name='title' placeholder="JOB TITLE" /> </JobTitle>
             <Salary> <InputText name='salary' placeholder="SALARY" /> </Salary>
             <StartDate> <InputText name='start' placeholder="START DATE" /> </StartDate>
+
+            <InputContainer>
+            <input type='radio' value='full' name='time' checked /><label>Full Time</label>
+            <input type='radio' value='part' name='time' /><label>Part Time</label>
+            </InputContainer>
+
             <Location> <InputText name='location' placeholder="LOCATION" /> </Location>
-            <TagsContainer></TagsContainer>
+
+            <TagsContainer>
+
+            </TagsContainer>
+
             <JobDescription name='description' placeholder='JOB DESCRIPTION'></JobDescription>
 
             <InputContainer>
-                <Button onClick={formHandler} type="submit">Post Job</Button>
+                <Button onClick={formHandler} type="Submit">Post Job</Button>
             </InputContainer>
             </form>
         </PostJobContainer>

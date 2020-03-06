@@ -7,6 +7,7 @@ import {
 import { InputText } from '../../Other/Input.style';
 import Heading from '../../Other/Heading.style';
 import Button from '../../Buttons/Button';
+import fetch from 'isomorphic-unfetch';
 
 const formHandler = e => {
     e.preventDefault();
@@ -56,7 +57,7 @@ export default ({setRoute}) => (
         </div> */}
 
         <input type='radio' name='type' value='company'/><label>Company</label>
-        <input type='radio' name='type' value='user'/><label>User</label>
+        <input type='radio' name='type' value='user' checked/><label>User</label>
 
         <InputContainer>
         <Button onClick={formHandler} type="Submit">Sign In</Button>

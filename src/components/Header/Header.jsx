@@ -8,8 +8,12 @@ import Link from 'next/link';
 
 const onLoad = () => {
     if(process.browser){
-        return JSON.parse(localStorage.getItem('session'));
-    } return false;
+        const session = JSON.parse(localStorage.getItem('session'));
+        if(session){
+            return session;
+        }
+        return false;
+    }
 }
 const Header = () => (
     <HeaderWrapper id="#top">
@@ -27,7 +31,7 @@ const Header = () => (
                 <NavItem>
                     {
                     onLoad() ? 
-                    <a href={'/profile/user/'+onLoad()['type']+'profile'}>{onLoad()['name']}</a>
+                    <a href={`/profile/page/${onLoad()['type']}profile`}>{onLoad()['name']}</a>
                     :
                     <a href="/?signin=true">Sign In</a>
                     }

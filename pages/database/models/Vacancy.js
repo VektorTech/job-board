@@ -6,20 +6,30 @@ export default sequelize.define('vacancy', {
       type: Sequelize.STRING(20),
       primaryKey: true,
     },
-    email: {
+    title: {
       type: Sequelize.STRING(100),
       allowNull: false
     },
-    name: {
-      type: Sequelize.STRING(100),
-      allowNull: false
+    salary: {
+      type: Sequelize.INTEGER,
     },
     description: {
       type: Sequelize.TEXT,
       allowNull: false
     },
-    end_at: {
-        type: Sequelize.DATE,
-        allowNull: false
+    location: {
+      type: Sequelize.TEXT,
+      allowNull: false
+    },
+    time: {
+      type: Sequelize.STRING(4),
+      allowNull: false
+    },
+    start: {
+      type: Sequelize.DATE,
+    },
+    company: {
+      type: Sequelize.STRING,
+      allowNull: false
     }
 }, {});

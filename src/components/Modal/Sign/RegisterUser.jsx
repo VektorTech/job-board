@@ -7,7 +7,6 @@ import {
 import { InputText } from '../../Other/Input.style';
 import Heading from '../../Other/Heading.style';
 import Button from '../../Buttons/Button';
-
 import fetch from 'isomorphic-unfetch';
 
 const formHandler = e => {

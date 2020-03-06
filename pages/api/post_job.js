@@ -1,5 +1,6 @@
 import nextConnect from 'next-connect';
 import { add_vacancy } from "../database/middlewares/vacancy";
+
 const handler = nextConnect();
 
 handler.use((req, res, next) => {
@@ -7,7 +8,7 @@ handler.use((req, res, next) => {
   //validate
   return next();
 }).use(add_vacancy).post((req, res) => {
-  res.json();
+  res.send("OK");
 });
 
 export default handler;

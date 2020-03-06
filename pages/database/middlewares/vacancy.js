@@ -5,11 +5,9 @@ import addVacancy from "./controllers/addVacancy";
 export const add_vacancy = (req, res, next) => {
     const access_token = req.headers.cookie.match(/access-token=(.*)[;$]?/)[1];
 
-    JWT.verify(access_token, COMPANY_ACCESS_TOKEN_SECRET, (err, decode) => {
+    JWT.verify(access_token, COMPANY_ACCESS_TOKEN_SECRET, (err, decoded) => {
         if(!err)
-            req.body['company'] = decode.id;
-            console.log(req.body);
-            addVacancy(req.body);
+            addVacancy({ ...req.body, id: Date.now(), company: decoded.id });
     });
     next();
 }

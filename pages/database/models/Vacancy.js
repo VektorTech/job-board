@@ -28,6 +28,10 @@ export default sequelize.define('vacancy', {
     start: {
       type: Sequelize.DATE,
     },
+    company_name: {
+      type: Sequelize.STRING(100),
+      allowNull: false
+    },
     company: {
       type: Sequelize.STRING,
       allowNull: false

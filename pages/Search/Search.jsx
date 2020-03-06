@@ -10,21 +10,42 @@ import {
 import JobBlock from '../../src/components/JobBlock/JobBlock';
 import TagBlock from '../../src/components/Tag/Tag';
 import Heading from '../../src/components/Other/Heading.style';
+import fetch from 'isomorphic-unfetch';
+import { useEffect } from 'react';
+import Button from '../../src/components/Buttons/Button';
 
 const asideStruct = {
-    "City": [],
-    "Categories": [],
+    "City": ["default"],
+    "Categories": ["default"],
     "Job Type": ["Full Time"],
-    "Salary Range": []
+    "Salary Range": ["default"]
 };
 
-const SearchPage = () => (
+const formHandler = e => {
+    e.preventDefault();
+
+    const form = document.forms['refine'];
+    const data = {
+        "City": form["City"].value,
+        "Categories": form["Categories"].value,
+        "Job Type": form["Job Type"].value,
+        "Salary Range": form["Salary Range"].value
+    };
+
+    fetch('/api/get_jobs', {
+        method: 'POST',
+        body: JSON.stringify( data )
+    })
+}
+
+const SearchPage = () => {
+    return (
     <SearchPageContainer>
         <SearchPageAside>
+        <form name='refine'>
             <Heading>Current Search</Heading>
             <SearchTagArea>
-                <TagBlock type="search">Sales</TagBlock>
-                <TagBlock type="search">Cambridge</TagBlock>
+                {/* <TagBlock type="search"></TagBlock> */}
             </SearchTagArea>
             
             {Object.keys(asideStruct).map( (key, i) => (
@@ -32,12 +53,14 @@ const SearchPage = () => (
                 <Heading>Refine by {key}</Heading>
                 {asideStruct[key].map(item => (
                     <ListItem>
-                    <CheckBox type="checkbox"/>
+                    <input type="checkbox" name={key} value={item} />
                     <a style={{paddingLeft:"1rem"}} href="/">{item} (1)</a>
                     </ListItem>
                 ))}
                 </ul>
             ))}
+            <Button onClick={formHandler} type="Apply">Submit</Button>
+        </form>
         </SearchPageAside>
 
         <SearchPageMain>
@@ -51,6 +74,6 @@ const SearchPage = () => (
         </SearchPageMain>
 
     </SearchPageContainer>
-);
-
+    );
+}
 export default SearchPage;

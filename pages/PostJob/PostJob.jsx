@@ -43,9 +43,13 @@ const PostJob = () => {
             <StartDate> <InputText name='start' placeholder="START DATE" /> </StartDate>
 
             <InputContainer>
-            <input type='radio' value='full' name='time' checked /><label>Full Time</label>
-            <input type='radio' value='part' name='time' /><label>Part Time</label>
+            <input type='radio' value='Full' name='time' checked /><label>Full Time</label>
+            <input type='radio' value='Part' name='time' /><label>Part Time</label>
             </InputContainer>
+
+            <select>
+                
+            </select>
 
             <Location> <InputText name='location' placeholder="LOCATION" /> </Location>
 

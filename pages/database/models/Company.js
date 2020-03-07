@@ -1,7 +1,7 @@
 import Sequelize from 'sequelize';
 import sequelize from '../database';
 
-export default sequelize.define('company', {
+const Company = sequelize.define('company', {
     id: {
       type: Sequelize.STRING(20),
       primaryKey: true,
@@ -34,14 +34,16 @@ export default sequelize.define('company', {
     },
     logo: {
       type: Sequelize.BLOB
-    },
-    job_repo: {
-      type: Sequelize.STRING,
-      get() {
-        return this.getDataValue('job_repo').split(';')
-      },
-      set(val) {
-        this.setDataValue('job_repo', val.join(';'));
-      }
     }
+    // job_repo: {
+    //   type: Sequelize.STRING,
+    //   get() {
+    //     return this.getDataValue('job_repo').split(';')
+    //   },
+    //   set(val) {
+    //     this.setDataValue('job_repo', val.join(';'));
+    //   }
+    // }
 }, {});
+
+export default Company;

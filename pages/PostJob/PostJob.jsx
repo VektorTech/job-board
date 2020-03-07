@@ -19,6 +19,7 @@ const formHandler = e => {
     const form = document.forms['post_job'];
     const data = {
         title: form['title'].value,
+        category: form['category'].value,
         salary: form['salary'].value,
         start: form['start'].value,
         time: form['time'].value,
@@ -45,11 +46,22 @@ const PostJob = () => {
             <InputContainer>
             <input type='radio' value='Full' name='time' checked /><label>Full Time</label>
             <input type='radio' value='Part' name='time' /><label>Part Time</label>
-            </InputContainer>
 
-            <select>
-                
+            <label>Select Job Category:</label>
+            <select name='category'>
+                <option value=''>Select Option</option>
+                <option value='aviation'>Aviation</option>
+                <option value='arts'>Arts</option>
+                <option value='business'>Business</option>
+                <option value='law enforcement'>Law Enforcement</option>
+                <option value='media'>Media</option>
+                <option value='medical'>Medical</option>
+                <option value='service industry'>Service Industry</option>
+                <option value='teaching'>Teaching</option>
+                <option value='technology'>Technology</option>
+                <option value='other'>Other Options</option>
             </select>
+            </InputContainer>
 
             <Location> <InputText name='location' placeholder="LOCATION" /> </Location>
 

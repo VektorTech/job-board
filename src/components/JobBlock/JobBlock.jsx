@@ -8,7 +8,7 @@ import TagBlock from '../Tag/Tag';
 import Heading from '../Other/Heading.style';
 import { CompLogoImg } from '../Other/CompanyLogo.style';
 
-const JobBlock = ({ title, comp_name, location, date, time }) => (
+const JobBlock = ({ title, location, start, time, company }) => (
     <BlockContainer>
         <CompLogoContainer>
             <CompLogoImg small/>
@@ -16,13 +16,13 @@ const JobBlock = ({ title, comp_name, location, date, time }) => (
         <div>
             <Heading size="med">{title}</Heading>
             <ul style={{marginTop: "1.7rem"}}>
-                <ListItem><FAI icon="building"/>{comp_name}</ListItem>
+                <ListItem><FAI icon="building"/>{company.name}</ListItem>
                 <ListItem><FAI icon="compass"/>{location}</ListItem>
             </ul>
         </div>
         <div style={{textAlign: "right"}}>
             <TagBlock type="job">{time} Time</TagBlock>
-            <JobDate><FAI icon="calendar"/>{date}</JobDate>
+            <JobDate><FAI icon="calendar"/>{start}</JobDate>
         </div>
     </BlockContainer>
 );

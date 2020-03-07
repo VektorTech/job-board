@@ -1,7 +1,8 @@
 import Sequelize from 'sequelize';
 import sequelize from '../database';
+import Company from './Company';
 
-export default sequelize.define('vacancy', {
+const Vacancy = sequelize.define('vacancy', {
     id: {
       type: Sequelize.STRING(20),
       primaryKey: true,
@@ -9,6 +10,9 @@ export default sequelize.define('vacancy', {
     title: {
       type: Sequelize.STRING(100),
       allowNull: false
+    },
+    category: {
+      type: Sequelize.STRING(25),
     },
     salary: {
       type: Sequelize.INTEGER,
@@ -27,13 +31,10 @@ export default sequelize.define('vacancy', {
     },
     start: {
       type: Sequelize.DATE,
-    },
-    company_name: {
-      type: Sequelize.STRING(100),
-      allowNull: false
-    },
-    company: {
-      type: Sequelize.STRING,
-      allowNull: false
     }
 }, {});
+
+Vacancy.belongsTo(Company);
+Company.hasMany(Vacancy);
+
+export default Vacancy;

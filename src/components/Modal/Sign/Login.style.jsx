@@ -22,8 +22,9 @@ export const Switch = styled.button`
 `;
 
 export const Description = styled.textarea`
-    overflow: hidden;
     width: 100%;
     height: 100%;
     border-radius: 1rem;
+    resize: none;
+    padding: 1.5rem 0 0 1.5rem;
 `;

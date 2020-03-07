@@ -54,11 +54,6 @@ export default ({setRoute}) => (
     <PrimaryWrapper>
         <Heading center style={{marginBottom:'4rem'}} size={'lg'}>Register</Heading>
 
-        <InputContainer>
-        <Button type="Submit">Social Media</Button>
-        </InputContainer>
-
-        <hr style={{margin:'5% 0', height:'.22rem'}} color="#ddd" />
         
         <form name='register'>
         <InputContainer>
@@ -75,12 +70,12 @@ export default ({setRoute}) => (
 
         <InputContainer>
             <Heading>Sex:</Heading>
-            <input type="radio" value='m' name="sex" id=""/><label>Male</label>
-            <input type="radio" value='f' name="sex" id=""/><label>Female</label>
+            <label><input style={{fontSize:'1.5rem'}} type="radio" value='m' name="sex" id=""/> Male</label>
+            <label><input style={{fontSize:'1.5rem',marginLeft:'5rem'}} type="radio" value='f' name="sex" id=""/> Female</label>
         </InputContainer>
 
         <InputContainer>
-        <InputText name='phone' placeholder="Phone" />
+        <InputText type="tel" name='phone' placeholder="Phone" />
         </InputContainer>
 
         <InputContainer>
@@ -91,6 +86,8 @@ export default ({setRoute}) => (
         <input type="file" name="avatar" id="" accept="image/*"/>
         </InputContainer>
 
+        <hr style={{margin:'5% 0', height:'.22rem'}} color="#ddd" />
+        
         <InputContainer>
         <Button onClick={formHandler} type="Submit">Create Account</Button>
         </InputContainer>

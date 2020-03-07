@@ -64,8 +64,10 @@ const SearchPage = () => {
                 <Heading>Refine by {key}</Heading>
                 {asideStruct[key].map(item => (
                     <ListItem>
-                    <input style={{transform: "translateY(25%)", marginLeft:"1rem"}} type="radio" name={key} value={item} />
-                    <label style={{paddingLeft:"1rem"}}>{item}</label>
+                    <label style={{paddingLeft:"1rem"}}>
+                    <input style={{transform: "translateY(25%)", margin:"0 .5rem"}} type="radio" name={key} value={item} />
+                    {item}
+                    </label>
                     </ListItem>
                 ))}
                 </ul>

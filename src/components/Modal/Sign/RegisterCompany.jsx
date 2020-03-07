@@ -36,11 +36,6 @@ export default ({setRoute}) => (
     <PrimaryWrapper>
         <Heading center style={{marginBottom:'4rem'}} size={'lg'}>Register</Heading>
 
-        <InputContainer>
-        <Button type="Submit">Social Media</Button>
-        </InputContainer>
-
-        <hr style={{margin:'5% 0', height:'.22rem'}} color="#ddd" />
         
         <form name='register'>
         <InputContainer>
@@ -61,11 +56,11 @@ export default ({setRoute}) => (
         </InputContainer>
 
         <InputContainer>
-        <InputText name='phone' placeholder="Phone" />
+        <InputText type='tel' name='phone' placeholder="Phone" />
         </InputContainer>
 
         <InputContainer>
-        <InputText name='website' placeholder="Website" />
+        <InputText type="url" name='website' placeholder="Website" />
         </InputContainer>
 
         <InputContainer>
@@ -75,6 +70,8 @@ export default ({setRoute}) => (
         <InputContainer>
         <input type="file" name="logo" id="" accept="image/*"/>
         </InputContainer>
+        
+        <hr style={{margin:'5% 0', height:'.22rem'}} color="#ddd" />
 
         <InputContainer>
         <Button onClick={formHandler} type="Submit">Create Account</Button>

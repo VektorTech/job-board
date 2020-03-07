@@ -36,11 +36,6 @@ export default ({setRoute}) => (
     <PrimaryWrapper>
         <Heading center style={{marginBottom:'4rem'}} size={'lg'}>Login</Heading>
 
-        <InputContainer>
-        <Button type="Submit">Social Media</Button>
-        </InputContainer>
-
-        <hr style={{margin:'5% 0', height:'.22rem'}} color="#ddd" />
         
         <form name='login'>
         <InputContainer>
@@ -51,13 +46,10 @@ export default ({setRoute}) => (
         <InputText type='password' name='password' placeholder="Password" />
         </InputContainer>
 
-        {/* <div>
-        <input type="checkbox" id="remember" name="remember"/>
-        <label for="remember">Remember Me</label>
-        </div> */}
+        <label><input style={{fontSize:'1.5rem'}} type='radio' name='type' value='company'/> Company</label>
+        <label><input style={{fontSize:'1.5rem',marginLeft:'5rem'}} type='radio' name='type' value='user' defaultChecked/> User</label>
 
-        <input type='radio' name='type' value='company'/><label>Company</label>
-        <input type='radio' name='type' value='user' checked/><label>User</label>
+        <hr style={{margin:'5% 0', height:'.22rem'}} color="#ddd" />
 
         <InputContainer>
         <Button onClick={formHandler} type="Submit">Sign In</Button>

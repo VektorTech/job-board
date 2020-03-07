@@ -8,7 +8,10 @@ export default sequelize.define('user', {
     },
     email: {
       type: Sequelize.STRING(100),
-      allowNull: false
+      allowNull: false,
+      validate: {
+        isUrl: true
+      }
     },
     password: {
       type: Sequelize.STRING(64),
@@ -16,14 +19,23 @@ export default sequelize.define('user', {
     },
     name: {
       type: Sequelize.STRING(90),
-      allowNull: false
+      allowNull: false,
+      validate: {
+        min: 7
+      }
     },
     sex: {
       type: Sequelize.STRING(1),
-      allowNull: false
+      allowNull: false,
+      validate: {
+        isIn: [["f", "F", 'm', "M"]]
+      }
     },
     phone: {
-      type: Sequelize.STRING(25)
+      type: Sequelize.STRING(25),
+      validate: {
+        isMobilePhone: true
+      }
     },
     address: {
       type: Sequelize.STRING(200)

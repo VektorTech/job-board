@@ -5,14 +5,21 @@ import Company from './Company';
 const Vacancy = sequelize.define('vacancy', {
     id: {
       type: Sequelize.STRING(20),
-      primaryKey: true,
+      primaryKey: true
     },
     title: {
       type: Sequelize.STRING(100),
-      allowNull: false
+      allowNull: false,
+      validate: {
+        min: 10
+      }
     },
     category: {
       type: Sequelize.STRING(25),
+      allowNull: false,
+      validate: {
+        isIn: [["aviation", "arts", "business", "law enforcement", "media", "medical", "service industry", "teaching", "technology", "other"]]
+      }
     },
     salary: {
       type: Sequelize.INTEGER,
@@ -31,6 +38,9 @@ const Vacancy = sequelize.define('vacancy', {
     },
     start: {
       type: Sequelize.DATE,
+      validate: {
+        isAfter: new Date().toLocaleDateString().split('/').reverse().join('-')
+      }
     }
 }, {});
 

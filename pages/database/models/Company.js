@@ -8,7 +8,10 @@ const Company = sequelize.define('company', {
     },
     email: {
       type: Sequelize.STRING(100),
-      allowNull: false
+      allowNull: false,
+      validate: {
+        isUrl: true
+      }
     },
     password: {
       type: Sequelize.STRING(64),
@@ -24,10 +27,17 @@ const Company = sequelize.define('company', {
     },
     website: {
       type: Sequelize.STRING(100),
-      allowNull: false
+      allowNull: true,
+      validate: {
+        isUrl: true
+      }
     },
     phone: {
-      type: Sequelize.STRING(25)
+      type: Sequelize.STRING(25),
+      allowNull: false,
+      validate: {
+        len: [10, 25]
+      }
     },
     address: {
       type: Sequelize.STRING(200)
@@ -35,15 +45,6 @@ const Company = sequelize.define('company', {
     logo: {
       type: Sequelize.BLOB
     }
-    // job_repo: {
-    //   type: Sequelize.STRING,
-    //   get() {
-    //     return this.getDataValue('job_repo').split(';')
-    //   },
-    //   set(val) {
-    //     this.setDataValue('job_repo', val.join(';'));
-    //   }
-    // }
 }, {});
 
 export default Company;

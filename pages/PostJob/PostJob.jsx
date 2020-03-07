@@ -1,13 +1,9 @@
 import {
-    PostJobContainer,
     InputContainer,
-    JobTitle,
-    Salary,
-    StartDate,
-    Location,
-    TagsContainer,
     JobDescription
 } from './PostJob.style';
+import { PageContainer } from '../../src/components/Other/PageContainer.style';
+
 import { InputText } from '../../src/components/Other/Input.style';
 import Heading from '../../src/components/Other/Heading.style';
 import Button from '../../src/components/Buttons/Button';
@@ -21,6 +17,7 @@ const formHandler = e => {
     const data = {
         title: form['title'].value,
         category: form['category'].value,
+        tags: form['tags'].value,
         salary: form['salary'].value,
         start: form['start'].value,
         time: form['time'].value,
@@ -38,18 +35,20 @@ const formHandler = e => {
 const PostJob = () => {
     return (<>
         <Banner_2 />
-        <PostJobContainer>
+        <PageContainer>
             <form name='post_job'>
             <Heading center size='lg' bottom="5rem">Post A Job</Heading>
-            <JobTitle> <InputText name='title' placeholder="JOB TITLE" /> </JobTitle>
-            <Salary> <InputText name='salary' placeholder="SALARY" /> </Salary>
-            <StartDate> <InputText name='start' placeholder="START DATE" /> </StartDate>
+            <InputContainer> <InputText name='title' placeholder="JOB TITLE" /> </InputContainer>
+            <InputContainer> <InputText name='salary' placeholder="SALARY" /> </InputContainer>
+            <InputContainer> <InputText type='date' name='start' min={new Date().toISOString().split('T')[0]} /> </InputContainer>
 
             <InputContainer>
-            <input type='radio' value='Full' name='time' checked /><label>Full Time</label>
-            <input type='radio' value='Part' name='time' /><label>Part Time</label>
+            <label style={{fontSize:'1.5rem',}}><input type='radio' value='Full' name='time' defaultChecked /> Full Time</label>
+            <label style={{fontSize:'1.5rem',marginLeft:'5rem'}}><input type='radio' value='Part' name='time' /> Part Time</label>
+            </InputContainer>
 
-            <label>Select Job Category:</label>
+            <InputContainer>
+            <Heading size='md'>Select Job Category:</Heading>
             <select name='category'>
                 <option value=''>Select Option</option>
                 <option value='aviation'>Aviation</option>
@@ -65,11 +64,11 @@ const PostJob = () => {
             </select>
             </InputContainer>
 
-            <Location> <InputText name='location' placeholder="LOCATION" /> </Location>
+            <InputContainer>
+                <InputText name='tags' placeholder="TAGS Example: tag1, tag2, tag3..." />
+            </InputContainer>
 
-            <TagsContainer>
-
-            </TagsContainer>
+            <InputContainer> <InputText name='location' placeholder="LOCATION" /> </InputContainer>
 
             <JobDescription name='description' placeholder='JOB DESCRIPTION'></JobDescription>
 
@@ -77,7 +76,7 @@ const PostJob = () => {
                 <Button onClick={formHandler} type="Submit">Post Job</Button>
             </InputContainer>
             </form>
-        </PostJobContainer>
+        </PageContainer>
     </>);
 }
 

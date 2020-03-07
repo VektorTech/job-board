@@ -18,8 +18,22 @@ const Vacancy = sequelize.define('vacancy', {
       type: Sequelize.STRING(25),
       allowNull: false,
       validate: {
-        isIn: [["aviation", "arts", "business", "law enforcement", "media", "medical", "service industry", "teaching", "technology", "other"]]
+        isIn: [[
+          "aviation", 
+          "arts", 
+          "business", 
+          "law enforcement", 
+          "media", 
+          "medical", 
+          "service industry", 
+          "teaching", 
+          "technology", 
+          "other"]]
       }
+    },
+    tags: {
+      type: Sequelize.TEXT,
+      allowNull: false
     },
     salary: {
       type: Sequelize.INTEGER,
@@ -39,7 +53,7 @@ const Vacancy = sequelize.define('vacancy', {
     start: {
       type: Sequelize.DATE,
       validate: {
-        isAfter: new Date().toLocaleDateString().split('/').reverse().join('-')
+        isAfter: new Date().toISOString().split('T')[0]
       }
     }
 }, {});

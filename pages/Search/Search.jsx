@@ -22,7 +22,7 @@ const SearchPage = () => {
 
     const asideStruct = {
         "City": [""],
-        "Categories": ["Aviation", "Arts", "Business", "Law enforcement", "Media", "Medical", "Service Industry", "Teaching", "Technology", "Other"],
+        "Categories": ["Aviation", "Arts", "Business", "Law Enforcement", "Media", "Medical", "Service Industry", "Teaching", "Technology", "Other"],
         "Job Type": ["Full Time", "Part TIme"],
         "Salary Range": ["Up to $20,000", "$20,000 - $40,000", "$40,000 - $75,000", "$75,000 - $100,000", "$100,000 - $150,000", "$150,000 - $200,000", "$200,000 - $300,000", "$300,000+"]
     };

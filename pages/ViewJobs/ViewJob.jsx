@@ -17,6 +17,8 @@ import Heading from '../../src/components/Other/Heading.style';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import fetch from 'isomorphic-unfetch';
 import { useEffect, useState } from 'react';
+import { Banner_2 } from '../../src/components/Banner/Banner';
+
 
 const ViewJob = () => {
     const [state, setState] = useState();
@@ -32,7 +34,8 @@ const ViewJob = () => {
         const { title, category, salary, description, location, time, start, company } = state;
         const details = {"SALARY": "$"+salary, "START DATE": start, "LOCATION": location};
 
-        return (
+        return (<>
+            <Banner_2/>
             <ViewJobContainer>
                 <CompLogo>
                     <CompLogoImg src="/"/>
@@ -73,7 +76,7 @@ const ViewJob = () => {
                     {description}
                 </JobDescr>
             </ViewJobContainer>
-        );
+        </>);
     } else return null;
 }
 

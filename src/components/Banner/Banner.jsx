@@ -4,23 +4,23 @@ import {
     BannerContent2 
 } from './Banner.style';
 
-import SeachBar from './SearchBar';
+import SearchBar from './SearchBar';
 
-export const Banner_1 = () => (
+export const Banner_1 = ({found}) => (
     <>
     <BannerWrapper>
         <BannerContent>
-            <h2>120 Jobs Found</h2>
+            <h2>{found} Jobs Found</h2>
         </BannerContent>
     </BannerWrapper>
-    <SeachBar half />
+    <SearchBar half />
     </>
 );
 
 export const Banner_2 = () => (
     <BannerWrapper thin>
         <BannerContent2>
-            <SeachBar />
+            <SearchBar />
         </BannerContent2>
     </BannerWrapper>
 );

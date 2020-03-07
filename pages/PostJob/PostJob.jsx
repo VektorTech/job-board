@@ -12,6 +12,7 @@ import { InputText } from '../../src/components/Other/Input.style';
 import Heading from '../../src/components/Other/Heading.style';
 import Button from '../../src/components/Buttons/Button';
 import fetch from 'isomorphic-unfetch';
+import { Banner_2 } from '../../src/components/Banner/Banner';
 
 const formHandler = e => {
     e.preventDefault();
@@ -35,7 +36,8 @@ const formHandler = e => {
 }
 
 const PostJob = () => {
-    return (
+    return (<>
+        <Banner_2 />
         <PostJobContainer>
             <form name='post_job'>
             <Heading center size='lg' bottom="5rem">Post A Job</Heading>
@@ -76,7 +78,7 @@ const PostJob = () => {
             </InputContainer>
             </form>
         </PostJobContainer>
-    );
+    </>);
 }
 
 export default PostJob;

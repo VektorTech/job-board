@@ -13,6 +13,7 @@ import Heading from '../../src/components/Other/Heading.style';
 import fetch from 'isomorphic-unfetch';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { Banner_1 } from '../../src/components/Banner/Banner';
 
 import Button from '../../src/components/Buttons/Button';
 
@@ -48,7 +49,8 @@ const SearchPage = () => {
 
     useEffect(formHandler, []);
 
-    return (
+    return ( <>
+    <Banner_1 found={state.length} />
     <SearchPageContainer>
         <SearchPageAside>
         <form name='refine'>
@@ -82,6 +84,6 @@ const SearchPage = () => {
         </SearchPageMain>
 
     </SearchPageContainer>
-    );
+    </>);
 }
 export default SearchPage;

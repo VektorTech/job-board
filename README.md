@@ -1,6 +1,6 @@
 # Job Board
 
-## [Made with next-js](https://nextjs.org/)
+## [Made with nextjs](https://nextjs.org/)
 
 This is a job board where you can register as a employer to post vacancies or as a job seeker looking for vacancies.
 
@@ -8,9 +8,10 @@ This is a job board where you can register as a employer to post vacancies or as
 
 * Font Awesome
 * NextJS - Server Side Rendering (React)
+* React Hooks
 * Next-Connect
 * Bcrypt
-* Isomorphic-unfetch
+* Isomorphic Unfetch
 * JSONWebToken (JWT)
 * MariaDB
 * Sequelize

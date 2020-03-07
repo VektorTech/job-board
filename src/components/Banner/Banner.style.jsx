@@ -18,9 +18,5 @@ export const BannerContent = styled.div`
 `;
 
 export const BannerContent2 = styled.div`
-    width: 100%;
-    text-align: center;
     transform: translateY(75%);
-    color: white;
-    font-size: 2.5rem;
 `;

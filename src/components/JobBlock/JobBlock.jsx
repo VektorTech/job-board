@@ -8,10 +8,11 @@ import TagBlock from '../Tag/Tag';
 import Heading from '../Other/Heading.style';
 import { CompLogoImg } from '../Other/CompanyLogo.style';
 
-const JobBlock = ({ title, location, start, time, company }) => (
+const JobBlock = ({ title, location, start, time, company }) => {
+    return (
     <BlockContainer>
         <CompLogoContainer>
-            <CompLogoImg src={'data:image/bmp;base64,'+Base64.encode(company.logo)} small/>
+            <CompLogoImg src={company.logo} small/>
         </CompLogoContainer>
         <div>
             <Heading size="med">{title}</Heading>
@@ -25,6 +26,7 @@ const JobBlock = ({ title, location, start, time, company }) => (
             <JobDate><FAI icon="calendar"/>{start}</JobDate>
         </div>
     </BlockContainer>
-);
+    );
+}
 
 export default JobBlock;

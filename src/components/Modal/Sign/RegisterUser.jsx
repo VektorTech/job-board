@@ -18,7 +18,7 @@ const formHandler = e => {
     if(form['password'].value !== form['c_password'].value){
         alert("Passwords dont match");
     } else
-        reader.readAsArrayBuffer(form['avatar'].files[0]);
+        reader.readAsDataURL(form['avatar'].files[0]);
         
         reader.onload = function(){
             const data = {

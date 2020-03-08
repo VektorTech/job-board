@@ -6,7 +6,7 @@ import { register } from '../database/middlewares/auth';
 handler.use((req, res, next) => {
   req.body = JSON.parse(req.body);
   req.body['id'] = Date.now();
-  //validate
+    //validate
   return next();
 }).use(register).post((req, res) => {
   res.send("Success!")

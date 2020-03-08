@@ -14,7 +14,7 @@ const Company = sequelize.define('company', {
       }
     },
     password: {
-      type: Sequelize.STRING(64),
+      type: Sequelize.STRING(100),
       allowNull: false
     },
     name: {
@@ -43,7 +43,7 @@ const Company = sequelize.define('company', {
       type: Sequelize.STRING(200)
     },
     logo: {
-      type: Sequelize.BLOB
+      type: Sequelize.TEXT
     }
 }, {});
 

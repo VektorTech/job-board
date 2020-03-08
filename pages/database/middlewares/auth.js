@@ -9,8 +9,7 @@ import {
   ACCESS_TOKEN_SECRET,
   COMPANY_ACCESS_TOKEN_SECRET,
   REFRESH_TOKEN_SECRET, 
-  COMPANY_REFRESH_TOKEN_SECRET,
-  PASSWORD_SALT } from '../../api/config';
+  COMPANY_REFRESH_TOKEN_SECRET } from '../../api/config';
 
 const $_SESSION = {};
 
@@ -50,11 +49,9 @@ export const getSession = (req, res, next) => {
   return next();
 }
 
-export const register = (req, res, next) => {
-  const { type } = req.body;
-  req.body.password = bcrypt.hashSync(req.body.password, PASSWORD_SALT);
-
-  switch(type){
+export const register = async (req, res, next) => {
+  req.body.password = await bcrypt.hash(req.body.password, 10);
+  switch(req.body.type){
     case "company":
       registerCompany(req.body); break;
     case "user": 

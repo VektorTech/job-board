@@ -41,7 +41,7 @@ export default sequelize.define('user', {
       type: Sequelize.STRING(200)
     },
     avatar: {
-      type: Sequelize.BLOB
+      type: Sequelize.BLOB('long')
     },
     saved_jobs: {
       type: Sequelize.STRING,

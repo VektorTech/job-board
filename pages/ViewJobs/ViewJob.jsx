@@ -31,14 +31,14 @@ const ViewJob = () => {
     }, []);
 
     if(state){
-        const { title, category, salary, description, location, time, start, company } = state;
-        const details = {"SALARY": "$"+salary, "START DATE": start, "LOCATION": location};
+        const { title, tags, salary, description, location, start, company } = state;
+        const details = {"SALARY": "$"+salary, "START DATE": new Date(start).toDateString(), "LOCATION": location};
 
         return (<>
             <Banner_2/>
             <ViewJobContainer>
                 <CompLogo>
-                    <CompLogoImg src={'data:image/bmp;base64,'+Base64.encode(company.logo)}/>
+                    <CompLogoImg src={company.logo}/>
                     {/* <Ratings>4.9 <FontAwesomeIcon style={{fontSize:'1.8rem'}} icon="star"/></Ratings> */}
                 </CompLogo>
                 <CompHeading>
@@ -48,10 +48,9 @@ const ViewJob = () => {
         
                     <div>
                         <Heading>{company.name}</Heading>
-                        <h2><a href="/">{company.website}</a></h2>
                     </div>
                     
-                    <Button type="Apply">Apply Now</Button>
+                    <a href={"https://"+company.website}><Button type="Apply">Apply Now</Button></a>
                     <Button type="Save"><FontAwesomeIcon icon="heart"/> Save</Button>
                 </CompHeading>
                 <CompDetails>
@@ -65,12 +64,9 @@ const ViewJob = () => {
                     ))}
                 </CompDetails>
                 <CompTagsArea>
-                    <TagBlock type="search">Accounting</TagBlock>
-                    <TagBlock type="search">Accounting</TagBlock>
-                    <TagBlock type="search">Accounting</TagBlock>
-                    <TagBlock type="search">Accounting</TagBlock>
-                    <TagBlock type="search">Accounting</TagBlock>
-                    <TagBlock type="search">Accounting</TagBlock>
+                    {
+                        tags.split(', ').map(item => <TagBlock type="search">{item}</TagBlock>)
+                    }
                 </CompTagsArea>
                 <JobDescr>
                     {description}

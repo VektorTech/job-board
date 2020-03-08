@@ -8,8 +8,8 @@ export default (data) => new Promise((resolve, reject) => {
         where: {
             email: email
         }
-    }).then( company => {
-        if( bcrypt.compareSync(password, company.dataValues['password']) )
+    }).then( async company => {
+        if( await bcrypt.compare(password, company.dataValues['password']) )
             resolve(company.dataValues);
     } );
 });

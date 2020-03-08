@@ -54,6 +54,9 @@ const Vacancy = sequelize.define('vacancy', {
       type: Sequelize.DATE,
       validate: {
         isAfter: new Date().toISOString().split('T')[0]
+      },
+      get(){
+        return new Date(this.getDataValue('start')).toDateString();
       }
     }
 }, {});

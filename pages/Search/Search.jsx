@@ -29,13 +29,14 @@ const SearchPage = () => {
     
     const formHandler = e => {
         if(e) e.preventDefault();
-    
+
         const form = document.forms['refine'];
         const data = {
             // "City": form["City"].value,
             "Categories": form["Categories"].value,
             "Job Type": form["Job Type"].value,
-            "Salary Range": form["Salary Range"].value
+            "Salary Range": form["Salary Range"].value,
+            "Search": new URLSearchParams(window.location.search).get('search')
         };
     
         fetch('/api/get_jobs', {
@@ -49,7 +50,7 @@ const SearchPage = () => {
 
     useEffect(formHandler, []);
 
-    return ( <>
+    return ( state ? <>
     <Banner_1 found={state.length} />
     <SearchPageContainer>
         <SearchPageAside>
@@ -86,6 +87,6 @@ const SearchPage = () => {
         </SearchPageMain>
 
     </SearchPageContainer>
-    </>);
+    </>: null);
 }
 export default SearchPage;

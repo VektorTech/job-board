@@ -32,7 +32,7 @@ const ViewJob = () => {
 
     if(state){
         const { title, tags, salary, description, location, start, company } = state;
-        const details = {"SALARY": "$"+salary, "START DATE": new Date(start).toDateString(), "LOCATION": location};
+        const details = {"SALARY": "$"+salary, "START DATE": start, "LOCATION": location};
 
         return (<>
             <Banner_2/>

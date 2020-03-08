@@ -38,7 +38,7 @@ const ViewJob = () => {
             <Banner_2/>
             <ViewJobContainer>
                 <CompLogo>
-                    <CompLogoImg src="/"/>
+                    <CompLogoImg src={'data:image/bmp;base64,'+Base64.encode(company.logo)}/>
                     {/* <Ratings>4.9 <FontAwesomeIcon style={{fontSize:'1.8rem'}} icon="star"/></Ratings> */}
                 </CompLogo>
                 <CompHeading>

@@ -11,7 +11,7 @@ import { CompLogoImg } from '../Other/CompanyLogo.style';
 const JobBlock = ({ title, location, start, time, company }) => (
     <BlockContainer>
         <CompLogoContainer>
-            <CompLogoImg small/>
+            <CompLogoImg src={'data:image/bmp;base64,'+Base64.encode(company.logo)} small/>
         </CompLogoContainer>
         <div>
             <Heading size="med">{title}</Heading>

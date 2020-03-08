@@ -13,23 +13,32 @@ const formHandler = e => {
     e.preventDefault();
     
     const form = document.forms['register'];
-    const data = {
-        email: form['email'].value,
-        password: form['password'].value,
-        name: form['name'].value,
-        description: form['description'].value,
-        website: form['website'].value,
-        phone: form['phone'].value,
-        address: form['address'].value,
-        logo: form['logo'].value,
-        type: "company"
-    };
-    
-    fetch('/api/register', {
-            method:"POST",
-            body: JSON.stringify(data)
-        }).then(res => res.text())
-          .then( res => location.reload() );
+    const reader = new FileReader();
+
+    if(form['password'].value !== form['c_password'].value){
+        alert("Passwords dont match");
+    } else
+        reader.readAsArrayBuffer(form['logo'].files[0]);
+        
+        reader.onload = function(){
+            const data = {
+                email: form['email'].value,
+                password: form['password'].value,
+                name: form['name'].value,
+                description: form['description'].value,
+                website: form['website'].value,
+                phone: form['phone'].value,
+                address: form['address'].value,
+                logo: reader.result,
+                type: "company"
+            };
+
+            fetch('/api/register', {
+                method:"POST",
+                body: JSON.stringify(data)
+            }).then(res => res.text())
+            .then( res => location.reload() );
+        }
 }
 
 export default ({setRoute}) => (
@@ -44,7 +53,10 @@ export default ({setRoute}) => (
 
         <InputContainer>
         <InputText type='password' name='password' placeholder="Password"/>
-        {/*confirm pw*/}
+        </InputContainer>
+
+        <InputContainer>
+        <InputText type='password' name='c_password' placeholder="Confirm Password"/>
         </InputContainer>
 
         <InputContainer>

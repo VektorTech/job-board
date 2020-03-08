@@ -13,26 +13,31 @@ const formHandler = e => {
     e.preventDefault();
     
     const form = document.forms['register'];
-    const data = {
-        email: form['email'].value,
-        password: form['password'].value,
-        name: form['name'].value,
-        sex: form['sex'].value,
-        phone: form['phone'].value,
-        address: form['address'].value,
-        avatar: form['avatar'].value,
-        type: "user"
-    };
-    
-    fetch('/api/register', {
-            method:"POST",
-            body: JSON.stringify(data)
-        }).then(res => res.text())
-          .then( res => location.reload() );
-    
+    const reader = new FileReader();
 
+    if(form['password'].value !== form['c_password'].value){
+        alert("Passwords dont match");
+    } else
+        reader.readAsArrayBuffer(form['avatar'].files[0]);
+        
+        reader.onload = function(){
+            const data = {
+                email: form['email'].value,
+                password: form['password'].value,
+                name: form['name'].value,
+                sex: form['sex'].value,
+                phone: form['phone'].value,
+                address: form['address'].value,
+                avatar: reader.result,
+                type: "user"
+            };
 
-    // validator.isEmail(data.email);
+            fetch('/api/register', {
+                method:"POST",
+                body: JSON.stringify(data)
+            }).then(res => res.text())
+            .then( res => location.reload() );
+        }
 
     // try {
     //     Object.keys(data).forEach( key => {
@@ -47,7 +52,6 @@ const formHandler = e => {
     // } catch(e) {
     //     console.log(e);
     // }
-
 };
 
 export default ({setRoute}) => (
@@ -62,6 +66,10 @@ export default ({setRoute}) => (
 
         <InputContainer>
         <InputText type='password' name='password' placeholder="Password"/>
+        </InputContainer>
+
+        <InputContainer>
+        <InputText type='password' name='c_password' placeholder="Confirm Password"/>
         </InputContainer>
 
         <InputContainer>

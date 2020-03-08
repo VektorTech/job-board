@@ -21,10 +21,10 @@ const SearchPage = () => {
     const [state, setState] = useState([]);
 
     const asideStruct = {
-        "City": [""],
+        // "City": [""],
         "Categories": ["Aviation", "Arts", "Business", "Law Enforcement", "Media", "Medical", "Service Industry", "Teaching", "Technology", "Other"],
         "Job Type": ["Full Time", "Part TIme"],
-        "Salary Range": ["Up to $20,000", "$20,000 - $40,000", "$40,000 - $75,000", "$75,000 - $100,000", "$100,000 - $150,000", "$150,000 - $200,000", "$200,000 - $300,000", "$300,000+"]
+        "Salary Range": ["Up to $20,000", "$20,000 - $40,000", "$40,000 - $75,000", "$75,000 - $100,000", "$100,000 - $150,000", "$150,000 - $200,000", "$200,000 - $300,000", "$300,000 - $500,000", "$500,000+"]
     };
     
     const formHandler = e => {
@@ -32,7 +32,7 @@ const SearchPage = () => {
     
         const form = document.forms['refine'];
         const data = {
-            "City": form["City"].value,
+            // "City": form["City"].value,
             "Categories": form["Categories"].value,
             "Job Type": form["Job Type"].value,
             "Salary Range": form["Salary Range"].value

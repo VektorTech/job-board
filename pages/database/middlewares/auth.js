@@ -2,13 +2,15 @@ import registerUser from './controllers/registerUser';
 import registerCompany from './controllers/registerCompany';
 import signinUser from './controllers/signinUser';
 import signinCompany from './controllers/signinCompany';
+import bcrypt from 'bcryptjs';
 import JWT from 'jsonwebtoken';
 
 import { 
   ACCESS_TOKEN_SECRET,
   COMPANY_ACCESS_TOKEN_SECRET,
   REFRESH_TOKEN_SECRET, 
-  COMPANY_REFRESH_TOKEN_SECRET } from '../../api/config';
+  COMPANY_REFRESH_TOKEN_SECRET,
+  PASSWORD_SALT } from '../../api/config';
 
 const $_SESSION = {};
 
@@ -50,10 +52,13 @@ export const getSession = (req, res, next) => {
 
 export const register = (req, res, next) => {
   const { type } = req.body;
+  req.body.password = bcrypt.hashSync(req.body.password, PASSWORD_SALT);
 
   switch(type){
-    case "company": registerCompany(req.body); break;
-    case "user": registerUser(req.body); break;
+    case "company":
+      registerCompany(req.body); break;
+    case "user": 
+      registerUser(req.body); break;
   }
 
   return next();

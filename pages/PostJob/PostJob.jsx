@@ -1,13 +1,13 @@
 import {
     InputContainer,
     JobDescription
-} from './PostJob.style';
+} from './postjob.style';
 import { PageContainer } from '../../src/components/Other/PageContainer.style';
 
 import { InputText } from '../../src/components/Other/Input.style';
 import Heading from '../../src/components/Other/Heading.style';
 import Button from '../../src/components/Buttons/Button';
-import fetch from 'isomorphic-unfetch';
+import fetch from './node_modules/isomorphic-unfetch';
 import { Banner_2 } from '../../src/components/Banner/Banner';
 
 import Auth from '../Auth';

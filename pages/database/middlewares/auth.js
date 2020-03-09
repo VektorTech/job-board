@@ -29,6 +29,8 @@ export const getSession = (req, res, next) => {
         });
       } catch(err) {
         req.err = err.message;
+      } finally{
+          return next();
       }
     case "company":
       try {
@@ -44,9 +46,10 @@ export const getSession = (req, res, next) => {
         });
       } catch(err) {
         req.err = err.message;
+      } finally{
+          return next();
       }
   }
-  return next();
 }
 
 export const register = async (req, res, next) => {

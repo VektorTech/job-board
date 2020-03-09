@@ -10,6 +10,8 @@ import Button from '../../src/components/Buttons/Button';
 import fetch from 'isomorphic-unfetch';
 import { Banner_2 } from '../../src/components/Banner/Banner';
 
+import Auth from '../Auth';
+
 const formHandler = e => {
     e.preventDefault();
     
@@ -90,6 +92,11 @@ const PostJob = () => {
             </form>
         </PageContainer>
     </>);
+}
+
+
+PostJob.getInitialProps = ctx => {
+    return Auth(ctx, 'company');
 }
 
 export default PostJob;

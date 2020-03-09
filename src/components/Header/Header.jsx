@@ -24,7 +24,7 @@ const Header = () => (
             <Nav>
                 <NavItem><Link href="/"><a>Jobs</a></Link></NavItem>
                 <NavItem><Link href="/"><a>Companies</a></Link></NavItem>
-                <NavItem><Link href="/PostJob/PostJob"><a>Post a job</a></Link></NavItem>
+                <NavItem><a href="/PostJob/PostJob">Post a job</a></NavItem>
                 <NavItem><Link href="/"><a>Resume Search</a></Link></NavItem>
             </Nav>
             <Nav>

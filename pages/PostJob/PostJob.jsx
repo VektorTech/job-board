@@ -40,10 +40,22 @@ const PostJob = () => {
             <Heading center size='lg' bottom="5rem">Post A Job</Heading>
             <InputContainer> <InputText name='title' placeholder="JOB TITLE" /> </InputContainer>
             <InputContainer> <InputText name='salary' placeholder="SALARY" /> </InputContainer>
-            <InputContainer> <InputText type='date' name='start' min={new Date((8.64e+7*5)+Date.now()).toISOString().split('T')[0]} /> </InputContainer>
 
-            <InputContainer>
-            <label style={{fontSize:'1.5rem',}}><input type='radio' value='Full' name='time' defaultChecked /> Full Time</label>
+            <InputContainer> 
+                <label style={{fontSize:'1.5rem'}}>
+                Start Date
+                <InputText 
+                    required
+                    style={{width:'50%', marginLeft:'2rem'}} 
+                    type='date' name='start' 
+                    min={new Date((8.64e+7*5)+Date.now())
+                        .toISOString()
+                        .split('T')[0]} /> 
+                </label>
+            </InputContainer>
+
+            <InputContainer style={{lineHeight:'5rem'}}>
+            <label style={{fontSize:'1.5rem'}}><input type='radio' value='Full' name='time' defaultChecked /> Full Time</label>
             <label style={{fontSize:'1.5rem',marginLeft:'5rem'}}><input type='radio' value='Part' name='time' /> Part Time</label>
             </InputContainer>
 

@@ -24,14 +24,14 @@ const Header = () => (
             <Nav>
                 <NavItem><Link href="/"><a>Jobs</a></Link></NavItem>
                 <NavItem><Link href="/"><a>Companies</a></Link></NavItem>
-                <NavItem><a href="/PostJob/PostJob">Post a job</a></NavItem>
+                <NavItem><a href="/postjob/postjob">Post a job</a></NavItem>
                 <NavItem><Link href="/"><a>Resume Search</a></Link></NavItem>
             </Nav>
             <Nav>
                 <NavItem>
                     {
                     onLoad() ? 
-                    <a href={`/Profile/Page/${onLoad()['type']}Profile`}>{onLoad()['name']}</a>
+                    <a href={`/profile/page/${onLoad()['type']}profile`}>{onLoad()['name']}</a>
                     :
                     <a href="/?signin=true">Sign In</a>
                     }

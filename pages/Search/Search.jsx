@@ -19,6 +19,7 @@ import Button from '../../src/components/Buttons/Button';
 
 const SearchPage = () => {
     const [state, setState] = useState([]);
+    const [params, setParams] = useState( process.browser && new URLSearchParams(window.location.search).get('search') );
 
     const asideStruct = {
         // "City": [""],
@@ -36,7 +37,7 @@ const SearchPage = () => {
             "Categories": form["Categories"].value,
             "Job Type": form["Job Type"].value,
             "Salary Range": form["Salary Range"].value,
-            "Search": new URLSearchParams(window.location.search).get('search')
+            "Search": params
         };
     
         fetch('/api/get_jobs', {
@@ -57,7 +58,7 @@ const SearchPage = () => {
         <form name='refine'>
             <Heading>Current Search</Heading>
             <SearchTagArea>
-                {/* <TagBlock type="search"></TagBlock> */}
+                {process.browser && params ? params.split(' ').map(e => <TagBlock type="search">{e}</TagBlock>) : null}
             </SearchTagArea>
             
             {Object.keys(asideStruct).map( (key, i) => (

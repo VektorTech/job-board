@@ -1,4 +1,4 @@
-import styled from "./node_modules/styled-components";
+import styled from "styled-components";
 import { PageContainer } from "../../src/components/Other/PageContainer.style";
 
 export const SearchPageContainer = styled(PageContainer)`

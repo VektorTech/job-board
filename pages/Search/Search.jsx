@@ -10,9 +10,9 @@ import {
 import JobBlock from '../../src/components/JobBlock/JobBlock';
 import TagBlock from '../../src/components/Tag/Tag';
 import Heading from '../../src/components/Other/Heading.style';
-import fetch from './node_modules/isomorphic-unfetch';
-import { useEffect, useState } from './node_modules/react';
-import Link from './node_modules/next/link';
+import fetch from 'isomorphic-unfetch';
+import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { Banner_1 } from '../../src/components/Banner/Banner';
 
 import Button from '../../src/components/Buttons/Button';

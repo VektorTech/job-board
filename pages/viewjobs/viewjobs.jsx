@@ -14,9 +14,9 @@ import TagBlock from '../../src/components/Tag/Tag';
 import { CompLogoImg } from '../../src/components/Other/CompanyLogo.style';
 import Button from '../../src/components/Buttons/Button';
 import Heading from '../../src/components/Other/Heading.style';
-import { FontAwesomeIcon } from './node_modules/@fortawesome/react-fontawesome';
-import fetch from './node_modules/isomorphic-unfetch';
-import { useEffect, useState } from './node_modules/react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import fetch from 'isomorphic-unfetch';
+import { useEffect, useState } from 'react';
 import { Banner_2 } from '../../src/components/Banner/Banner';
 
 

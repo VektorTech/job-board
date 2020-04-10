@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { PageContainer } from "../../src/components/Other/PageContainer.style";
 
 export const SearchPageContainer = styled(PageContainer)`
-    height: 150rem;
+    height: fit-content;
     display: flex;
     flex-direction: row;
 `;

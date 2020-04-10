@@ -14,41 +14,34 @@ import {
 const $_SESSION = {};
 
 export const getSession = (req, res, next) => {
-  switch(req.body.user){
-    case "user":
-      try {
-        JWT.verify(req.body.refresh_token, REFRESH_TOKEN_SECRET, (err, decoded) => {
-          if (err || req.body.user !== 'user') throw err;
+  const session = {
+    "user": {
+      rToken: REFRESH_TOKEN_SECRET,
+      aToken: ACCESS_TOKEN_SECRET,
+      user: 'user'
+    },
+    "company": {
+      rToken: COMPANY_REFRESH_TOKEN_SECRET,
+      aToken: COMPANY_ACCESS_TOKEN_SECRET,
+      user: 'company'
+    }
+  };
 
-          JWT.verify(req.body.access_token, ACCESS_TOKEN_SECRET, (err) => {
-            if (err) req.token = JWT.sign({ 'id': decoded.id, 'name': decoded.name, 'user': 'user' }, 
-              ACCESS_TOKEN_SECRET, { algorithm: 'HS256', expiresIn:"1m" });
+  try {
+    JWT.verify(req.body.refresh_token, session[req.body.user].rToken, (err, decoded) => {
+      if (err || req.body.user !== session[req.body.user].user) throw err;
 
-            req.session = $_SESSION[decoded.id] || {};
-          });
-        });
-      } catch(err) {
-        req.err = err.message;
-      } finally{
-          return next();
-      }
-    case "company":
-      try {
-        JWT.verify(req.body.refresh_token, COMPANY_REFRESH_TOKEN_SECRET, (err, decoded) => {
-          if (err || req.body.user !== 'company') throw err;
-
-          JWT.verify(req.body.access_token, COMPANY_ACCESS_TOKEN_SECRET, (err) => {
-            if (err) req.token = JWT.sign({ 'id': decoded.id, 'name': decoded.name, 'user': 'company' }, 
-              COMPANY_ACCESS_TOKEN_SECRET, { algorithm: 'HS256', expiresIn:"1m" });
-
-            req.session = $_SESSION[decoded.id] || {};
-          });
-        });
-      } catch(err) {
-        req.err = err.message;
-      } finally{
-          return next();
-      }
+      JWT.verify(req.body.access_token, session[req.body.user].aToken, (err) => {
+        if (err) 
+          req.token = JWT.sign({ 'id': decoded.id, 'name': decoded.name, 'user': session[req.body.user].user }, 
+                                  session[req.body.user].aToken, { algorithm: 'HS256', expiresIn:"1m" });
+        req.session = $_SESSION[decoded.id] || {};
+      });
+    });
+  } catch(err) {
+      req.err = err.message;
+  } finally{
+      return next();
   }
 }
 
@@ -67,33 +60,32 @@ export const register = async (req, res, next) => {
 export const signin = async (req, res, next) => {
   const { type } = req.body;
 
-  switch(type){
-    case "company":  
-      await signinCompany(req.body).then( data => {
-        $_SESSION[data.id] = data;  
+  const session = {
+    "user": {
+      rToken: REFRESH_TOKEN_SECRET,
+      aToken: ACCESS_TOKEN_SECRET,
+      signin: signinUser,
+      user: 'user'
+    },
+    "company": {
+      rToken: COMPANY_REFRESH_TOKEN_SECRET,
+      aToken: COMPANY_ACCESS_TOKEN_SECRET,
+      signin: signinCompany,
+      user: 'company'
+    }
+  };
 
-        req.refresh_token = JWT.sign({ 'id': data.id, 'name': data.name, 'email': data.email }, 
-          COMPANY_REFRESH_TOKEN_SECRET, { algorithm: 'HS256', expiresIn:"14d" });
+  await session[type].signin(req.body).then( data => {
+    $_SESSION[data.id] = data;  
 
-        req.access_token = JWT.sign({ 'id': data.id, 'name': data.name, 'user': 'company' }, 
-          COMPANY_ACCESS_TOKEN_SECRET, { algorithm: 'HS256', expiresIn:"1m" });
+    req.refresh_token = JWT.sign({ 'id': data.id, 'name': data.name, 'email': data.email }, 
+      session[type].rToken, { algorithm: 'HS256', expiresIn:"14d" });
 
-        req.user = { name: data.name, type: type }; //logo etc.
-      }).catch(console.log);
-      break;
-    case "user": 
-      await signinUser(req.body).then( data => {
-        $_SESSION[data.id] = data;  
+    req.access_token = JWT.sign({ 'id': data.id, 'name': data.name, 'user': session[type].user }, 
+      session[type].aToken, { algorithm: 'HS256', expiresIn:"1m" });
 
-        req.refresh_token = JWT.sign({ 'id': data.id, 'name': data.name, 'email': data.email }, 
-          REFRESH_TOKEN_SECRET, { algorithm: 'HS256', expiresIn:"14d" });
-
-        req.access_token = JWT.sign({ 'id': data.id, 'name': data.name, 'user': 'user' }, 
-          ACCESS_TOKEN_SECRET, { algorithm: 'HS256', expiresIn:"1m" });
-
-        req.user = { name: data.name, type: type }; //avatar etc.
-      }).catch(console.log);
-      break;
-  }
+    req.user = { name: data.name, type: type }; //logo etc.
+  }).catch(() => req.err = true);
+  
   return next();
 }

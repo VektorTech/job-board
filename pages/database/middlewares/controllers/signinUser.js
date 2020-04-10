@@ -11,5 +11,5 @@ export default (data) => new Promise((resolve, reject) => {
     }).then( async user => {
         if( await bcrypt.compare(password, company.dataValues['password']) )
             resolve(user.dataValues);
-    } );
+    }).catch(reject);
 });

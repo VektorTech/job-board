@@ -6,7 +6,7 @@ export const BannerWrapper = styled.section`
     margin: 0 1.5%;
     margin-top: 6rem;
     border-radius: 1.3rem;
-    background-color: blue;
+    background-color: #2a7cdb;
 `;
 
 export const BannerContent = styled.div`

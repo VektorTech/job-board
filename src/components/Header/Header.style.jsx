@@ -17,6 +17,12 @@ export const HeaderInner = styled.div`
     justify-content: space-between;
 `;
 
+export const Logo = styled.div`
+    width: 10rem;
+    background: url(/logo.png) no-repeat center;
+    background-size: contain;
+`;
+
 export const Nav = styled.ul`
     font-size: 1.3rem;
     height: 100%;

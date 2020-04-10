@@ -51,7 +51,7 @@ const Footer = () => (
             </ul>
             </Column>
         </FooterInner>
-        <Copy>Copyright 2020 Powered by ???</Copy>
+        <Copy>Copyright 2020 Powered by Kenny Sutherland.</Copy>
         <Scroll_Top />
     </FooterWrapper>
 );

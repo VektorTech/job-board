@@ -8,7 +8,7 @@ export const ButtonDefault = styled.button`
     border: none;
     display: inline-block;
     color: white;
-    background-color: blue;
+    background-color: #2a7cdb;
 `;
 
 export const Submit = styled(ButtonDefault)`
@@ -27,8 +27,8 @@ export const Apply = styled(ButtonDefault)`
 `;
 
 export const SaveButton = styled(ButtonDefault)`
-    color: blue;
+    color: #2a7cdb;
     background-color: white;
-    border: 1px solid blue;
+    border: 1px solid #2a7cdb;
     margin: 1rem 1.5rem;
 `;

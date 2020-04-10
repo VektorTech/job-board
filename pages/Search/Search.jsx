@@ -64,8 +64,8 @@ const SearchPage = () => {
             {Object.keys(asideStruct).map( (key, i) => (
                 <ul key={i}>
                 <Heading>Refine by {key}</Heading>
-                {asideStruct[key].map(item => (
-                    <ListItem>
+                {asideStruct[key].map( (item, i) => (
+                    <ListItem key={i}>
                     <label style={{paddingLeft:"1rem"}}>
                     <input style={{transform: "translateY(25%)", margin:"0 .5rem"}} type="radio" name={key} value={item} />
                     {item}
@@ -82,7 +82,7 @@ const SearchPage = () => {
             <Heading size="lg">Job Listing</Heading>
             <div style={{marginTop:"2rem"}}>
             {
-                state.map(item => <Link href={`/ViewJobs/ViewJob?id=${item.id}`}><a><JobBlock {...item} /></a></Link>)
+                state.map( (item, i) => <Link key={i} href={`/ViewJobs/ViewJobs?id=${item.id}`}><a><JobBlock {...item} /></a></Link>)
             }
             </div>
         </SearchPageMain>

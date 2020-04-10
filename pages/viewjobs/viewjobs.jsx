@@ -55,7 +55,7 @@ const ViewJob = () => {
                 </CompHeading>
                 <CompDetails>
                     { Object.keys(details).map( key => (
-                        <Column>
+                        <Column key={key}>
                         <Heading size="sm">{key}</Heading>
                         <Nav>
                             <li>{details[key]}</li>

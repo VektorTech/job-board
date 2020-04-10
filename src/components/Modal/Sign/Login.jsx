@@ -11,7 +11,6 @@ import fetch from 'isomorphic-unfetch';
 
 const formHandler = e => {
     e.preventDefault();
-
     
     const form = document.forms['login'];
     const data = {
@@ -26,9 +25,17 @@ const formHandler = e => {
             body: JSON.stringify(data)
         }).then(res => res.json())
           .then(res => {
-              document.cookie=`access-token=${res.token}`;
-              localStorage.setItem('session', JSON.stringify(res.session_data));
-              location.href = '/';
+              if(res.err){
+                  const flash = document.createElement('p');
+                  flash.innerText = "Invalid Credentials";
+                  flash.style.color = "red";
+                  flash.style.fontSize = "1.2rem";
+                  form.appendChild( flash );
+              } else {
+                document.cookie=`access-token=${res.token}`;
+                localStorage.setItem('session', JSON.stringify(res.session_data));
+                location.href = '/';
+              }
             });
 }
 

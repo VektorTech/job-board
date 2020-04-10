@@ -7,20 +7,21 @@ export const TagBox = styled.div`
     text-align: center;
     display: inline-block;
     border-radius: 1.1rem;
-    background-color: #999;
+    background-color: #eee;
 
 `;
 
 export const SearchTag = styled(TagBox)`
-    color: blue;
+    color: #2a7cdb;
     text-transform: uppercase;
+    font-weight: bold;
     padding: 0 1rem;
     margin: .2rem .8rem .5rem .2rem; 
 `;
 
 export const JobType = styled(TagBox)`
     width: 8rem;
-    color: blue;
-    background-color: aqua;
+    color: #fff;
+    background-color: #56f0db;
     border-radius: 2rem;
 `;

@@ -17,6 +17,12 @@ This is a job board where you can register as a employer to post vacancies or as
 * Sequelize
 * Styled Components
 
+## Desktop 
+![alt text](/scrnsht1.png "Desktop")
+
+## Mobile
+![alt text](/scrnsht2.png "Mobile")
+
 ### About
 
 This project is a server-side rendered job-board that runs nextjs on the front and back end, single server that connects to a MariaDB database. Authentication and Authorization is done using a JWTs (Refresh and Access tokens).

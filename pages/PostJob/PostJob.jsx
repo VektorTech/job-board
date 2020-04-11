@@ -31,7 +31,7 @@ const formHandler = e => {
             method:"POST",
             credentials: "same-origin",
             body: JSON.stringify(data)
-        });//.then(res => location.href = '/');
+        }).then(res => location.href = '/');
 }
 
 const PostJob = () => {

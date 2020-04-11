@@ -17,11 +17,7 @@ export const CompLogoContainer = styled.div`
 `;
 
 export const JobDetail = styled.ul`
-    margin-top: 1.7rem;
-
-    @media screen and (max-width: 1024px) {
-        margin-top: 2.5rem;
-    }
+    margin-top: 2.5rem;
 `;
 
 export const ListItem = styled.li`

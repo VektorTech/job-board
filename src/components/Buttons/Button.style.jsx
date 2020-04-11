@@ -13,6 +13,7 @@ export const ButtonDefault = styled.button`
     @media screen and (max-width: 1024px) {
       width: 7rem;
       height: 3rem;
+      font-size: 1.1rem;
     }
 `;
 
@@ -20,6 +21,12 @@ export const Submit = styled(ButtonDefault)`
     width: 100%;
     height: 100%;
     font-size: 1.8rem;
+
+    @media screen and (max-width: 1024px) {
+      width: 100%;
+      height: 4rem;
+      font-size: 1.2rem;
+    }
 `;
 
 export const SearchSubmit = styled(ButtonDefault)`
@@ -28,6 +35,8 @@ export const SearchSubmit = styled(ButtonDefault)`
     
     @media screen and (max-width: 1024px) {
       width: 100%;
+      height: 4rem;
+      font-size: 1.2rem;
     }
 `;
 

@@ -1,3 +1,4 @@
+import {useState, useEffect} from 'react';
 import {
     HeaderWrapper,
     HeaderInner,
@@ -7,17 +8,14 @@ import {
 
 import Link from 'next/link';
 
-const onLoad = () => {
-    if(process.browser){
-        const session = JSON.parse(localStorage.getItem('session'));
-        if(session){
-            return session;
-        }
-        return false;
-    }
-}
-const Header = () => (
-    <HeaderWrapper id="#top">
+const Header = () => {
+    const [session, setSession] = useState(null)
+
+    useEffect( () => {
+        setSession( JSON.parse(localStorage.getItem('session')) ); 
+    }, []);
+
+    return ( <HeaderWrapper id="top">
         <HeaderInner>
             <Link href="/"><Logo></Logo></Link>
             <Nav>
@@ -28,19 +26,22 @@ const Header = () => (
             </Nav>
             <Nav>
                 <NavItem>
-                    {
-                    onLoad() ? 
+                    { session ? 
                     <>
-                    <a href={`/profile/page/${onLoad()['type']}profile`}>{onLoad()['name']}</a>
-                    <a href={`/profile/page/${onLoad()['type']}profile`}>{"Logout"}</a>
+                    <Link href={`/profile/page/${session['type']}profile`}><a>{session['name']}</a></Link>
+                    <button style={{marginLeft:'1rem',border:'none',background:'none',color:'inherit'}} 
+                            onClick={ () => {
+                                localStorage.setItem('session', null);
+                                location.reload();
+                            } }
+                            className="logout">Logout</button>
                     </>
                     :
-                    <a href="/?signin=true">Sign In</a>
-                    }
+                    <a href="/?signin=true">Sign In</a> }
                 </NavItem>
             </Nav>
         </HeaderInner>
-    </HeaderWrapper>
-);
+    </HeaderWrapper> );
+};
 
 export default Header;

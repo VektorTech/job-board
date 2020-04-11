@@ -50,9 +50,13 @@ const ViewJob = () => {
                         <Heading>{company.name}</Heading>
                     </div>
                     
+                    { JSON.parse(localStorage.getItem('session'))?.type != 'company' ?
+                    <>
                     <a href={"https://"+company.website}><Button type="Apply">Apply Now</Button></a>
                     <Button type="Save"><FontAwesomeIcon icon="heart"/> Save</Button>
-                </CompHeading>
+                    </> : null
+                    }
+               </CompHeading>
                 <CompDetails>
                     { Object.keys(details).map( key => (
                         <Column key={key}>
@@ -65,7 +69,7 @@ const ViewJob = () => {
                 </CompDetails>
                 <CompTagsArea>
                     {
-                        tags.split(', ').map(item => <TagBlock type="search">{item}</TagBlock>)
+                        tags.split(', ').map(item => <TagBlock key={item} type="search">{item}</TagBlock>)
                     }
                 </CompTagsArea>
                 <JobDescr>

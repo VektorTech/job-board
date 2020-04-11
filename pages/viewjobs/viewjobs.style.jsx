@@ -53,6 +53,7 @@ export const Ratings = styled.p`
 `;
 
 export const Nav = styled.ul`
+    font-size: 1.3rem;
     /* padding: 1rem 0 0 0; */
 `;
 

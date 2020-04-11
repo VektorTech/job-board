@@ -31,7 +31,6 @@ export const ListItem = styled.li`
 `;
 
 export const JobDate = styled.p`
-    /* float: right; */
     margin-top: 1rem;
     color: #999;
 `;

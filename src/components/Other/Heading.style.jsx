@@ -11,6 +11,10 @@ const Heading = styled.h1`
     font-size: ${({size}) => HeadingSize[size] || "1.5rem"};
     margin-bottom: ${({bottom}) => bottom || "1rem"};
     text-align: ${({center}) => center?"center":"left"};
+
+    @media screen and (max-width: 1024px) {
+      font-size: 1.5rem;
+    }
 `;
 
 export default Heading;

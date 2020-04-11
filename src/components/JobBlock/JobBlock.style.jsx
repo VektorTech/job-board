@@ -7,9 +7,21 @@ export const BlockContainer = styled.div`
     margin-bottom: 5rem;
     display: grid;
     grid-template-columns: 1.5fr 5.5fr 2.2fr;
+
+    @media screen and (max-width: 1024px) {
+        grid-gap: .5rem;
+    }
 `;
 
 export const CompLogoContainer = styled.div`
+`;
+
+export const JobDetail = styled.ul`
+    margin-top: 1.7rem;
+
+    @media screen and (max-width: 1024px) {
+        margin-top: 2.5rem;
+    }
 `;
 
 export const ListItem = styled.li`

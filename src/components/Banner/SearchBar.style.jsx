@@ -16,19 +16,36 @@ export const SearchBox = styled.div`
    grid-template-rows: 1fr;
    align-items: center;
    grid-gap: .5rem;
+
+   @media screen and (max-width: 1024px) {
+     max-width: 100%;
+     width: 90%;
+     margin: 0 5%;
+   }
 `;
 
  export const Search = styled.input`
    width: 70%;
    border: none;
+
+    @media screen and (max-width: 1024px) {
+      width:100%;
+    }
  `;
 
  export const Select = styled.select`
    width: 70%;
    color: #666;
    border: none;
+
+   @media screen and (max-width: 1024px) {
+      width:100%;
+    }
  `;
 
  export const FAI = styled(FontAwesomeIcon)`
     margin: 0 1.4rem 0 2.5rem;
+    @media screen and (max-width: 1024px) {
+      margin: 0 1.4rem 0 0;
+    }
  `; 

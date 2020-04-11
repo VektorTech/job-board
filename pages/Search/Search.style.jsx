@@ -9,10 +9,43 @@ export const SearchPageContainer = styled(PageContainer)`
 
 export const SearchPageAside = styled.aside`
     width: 35%;
+
+    @media screen and (max-width: 1024px) {
+        overflow: hidden;
+        background: #fff;
+        width: 0;
+        height: 0;
+        margin-top: -5rem;
+
+        &::before {
+            content: "Filter Results ⮟";
+            position: absolute;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        &:hover {
+            position: absolute;
+            width: fit-content;
+            height: fit-content;
+            padding: 2rem 2rem 0 2.5rem;
+            border-radius: 1rem;
+            box-shadow: .2rem .2rem 1rem #bbb;
+
+            &::before {
+                visibility: hidden;
+            }
+        }
+    }
 `;
 
 export const SearchPageMain = styled.div`
     width: 65%;
+
+    @media screen and (max-width: 1024px) {
+        width: 100%;
+    }
 `;
 
 export const SearchTagArea = styled.div`

@@ -9,7 +9,10 @@ export default (data) => new Promise((resolve, reject) => {
             email: email
         }
     }).then( async user => {
-        if( await bcrypt.compare(password, company.dataValues['password']) )
+        if( await bcrypt.compare(password, company.dataValues['password']) ){
             resolve(user.dataValues);
+        } else {
+            throw new Error("Don't match");
+        }
     }).catch(reject);
 });

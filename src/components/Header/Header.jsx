@@ -32,7 +32,7 @@ const Header = () => (
                     onLoad() ? 
                     <>
                     <a href={`/profile/page/${onLoad()['type']}profile`}>{onLoad()['name']}</a>
-                    <a href={`/profile/page/${onLoad()['type']}profile`}>{Logout}</a>
+                    <a href={`/profile/page/${onLoad()['type']}profile`}>{"Logout"}</a>
                     </>
                     :
                     <a href="/?signin=true">Sign In</a>

@@ -28,6 +28,10 @@ export const ListItem = styled.li`
     display: inline;
     color: #999;
     margin-right: 20%;
+    
+    @media screen and (max-width: 1024px) {
+      margin-right: 5%;
+    }
 `;
 
 export const JobDate = styled.p`

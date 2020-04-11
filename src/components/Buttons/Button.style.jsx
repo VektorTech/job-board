@@ -9,6 +9,11 @@ export const ButtonDefault = styled.button`
     display: inline-block;
     color: white;
     background-color: #2a7cdb;
+
+    @media screen and (max-width: 1024px) {
+      width: 7rem;
+      height: 3rem;
+    }
 `;
 
 export const Submit = styled(ButtonDefault)`
@@ -20,6 +25,10 @@ export const Submit = styled(ButtonDefault)`
 export const SearchSubmit = styled(ButtonDefault)`
     width: 100%;
     height: 5rem;
+    
+    @media screen and (max-width: 1024px) {
+      width: 100%;
+    }
 `;
 
 export const Apply = styled(ButtonDefault)`

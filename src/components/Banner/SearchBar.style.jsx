@@ -29,7 +29,8 @@ export const SearchBox = styled.div`
    border: none;
 
     @media screen and (max-width: 1024px) {
-      width:100%;
+      width: 85%;
+      margin-left: 1.2%;
     }
  `;
 
@@ -39,13 +40,13 @@ export const SearchBox = styled.div`
    border: none;
 
    @media screen and (max-width: 1024px) {
-      width:100%;
+      width: 85%;
     }
  `;
 
  export const FAI = styled(FontAwesomeIcon)`
     margin: 0 1.4rem 0 2.5rem;
     @media screen and (max-width: 1024px) {
-      margin: 0 1.4rem 0 0;
+      margin: 0;
     }
  `; 

@@ -35,20 +35,9 @@ export const Nav = styled.ul`
 
     @media screen and (max-width: 1024px) {
       &:nth-of-type(1){
-        width: 4rem;
         position: absolute;
-        right: 2rem;
-        overflow: hidden;
-
-        &:hover {
-          /* margin-top: 3rem; */
-          height: fit-content;
-          background: #fff;
-          width: fit-content;
-          padding: 0 2%;
-          border-radius: 1rem;
-          box-shadow: .2rem .2rem 1rem #bbb;
-        }
+        margin: 2.5rem 0 0 0; 
+        height: 0;       
       }
     }
 `;
@@ -56,10 +45,4 @@ export const Nav = styled.ul`
 export const NavItem = styled.li`
     padding: 0 1.2rem;
     display: inline;
-
-    @media screen and (max-width: 1024px) {
-      padding: 0;
-      height: 2rem;
-      display: block;
-    }
 `;

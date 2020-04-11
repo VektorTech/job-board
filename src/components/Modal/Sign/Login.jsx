@@ -26,12 +26,11 @@ const formHandler = e => {
         }).then(res => res.json())
           .then(res => {
               if(res.err){
-                  const flash = document.createElement('p');
-                  flash.innerText = "Invalid Credentials";
+                  const flash = document.getElementsByClassName('flash-err')[0];
                   flash.style.color = "red";
                   flash.style.fontSize = "1.2rem";
-                  form.appendChild( flash );
-              } else {
+                  flash.innerText = "Invalid Credentials";
+                } else {
                 document.cookie=`access-token=${res.token}`;
                 localStorage.setItem('session', JSON.stringify(res.session_data));
                 location.href = '/';
@@ -61,6 +60,7 @@ export default ({setRoute}) => (
         <InputContainer>
         <Button onClick={formHandler} type="Submit">Sign In</Button>
         </InputContainer>
+        <p class='flash-err'></p>
         </form>
 
         <Switch onClick={setRoute}>Create Account</Switch>

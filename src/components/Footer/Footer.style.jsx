@@ -23,6 +23,7 @@ export const FooterInner = styled.div`
 `;
 
 export const Column = styled.div`
+    width: 25%;
     padding: 5rem 0 0 1rem;
 
     @media screen and (max-width: 1024px) {

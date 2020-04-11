@@ -22,7 +22,11 @@ export const ModalContainer = styled.div`
     height: 80vh;
     background-color: white;
     border-radius: .5rem;
-    /* overflow: auto; */
+
+    @media screen and (max-width: 1024px) {
+      width: 100%;
+      margin: 10vh 0;
+    }
 `;
 
 export const CloseWrapper = styled.div`

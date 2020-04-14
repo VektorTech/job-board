@@ -2,6 +2,8 @@ import registerUser from './controllers/registerUser';
 import registerCompany from './controllers/registerCompany';
 import signinUser from './controllers/signinUser';
 import signinCompany from './controllers/signinCompany';
+
+import memcached from '../memcached';
 import bcrypt from 'bcryptjs';
 import JWT from 'jsonwebtoken';
 
@@ -11,7 +13,11 @@ import {
   REFRESH_TOKEN_SECRET, 
   COMPANY_REFRESH_TOKEN_SECRET } from '../../api/config';
 
-const $_SESSION = {};
+const $_SESSION = {
+  add: (data) =>  memcached.add(data.id, JSON.stringify(data), 60*60, err => { /* stuff */ }),
+  get: (id) => new Promise((reolve, reject) => memcached.gets(id, (err, data) => { if (err) { reject(err) } resolve(data[id]) })),
+  del: (data) => memcached.del(data.id, err => { /* stuff */ })
+};
 
 export const getSession = (req, res, next) => {
   const session = {
@@ -35,7 +41,7 @@ export const getSession = (req, res, next) => {
         if (err) 
           req.token = JWT.sign({ 'id': decoded.id, 'name': decoded.name, 'user': session[req.body.user].user }, 
                                   session[req.body.user].aToken, { algorithm: 'HS256', expiresIn:"1m" });
-        req.session = $_SESSION[decoded.id] || {};
+        $_SESSION.get(decoded.id).then(data => req.session = data);
       });
     });
   } catch(err) {
@@ -76,15 +82,15 @@ export const signin = async (req, res, next) => {
   };
 
   await session[type].signin(req.body).then( data => {
-    $_SESSION[data.id] = data;  
+    $_SESSION.add(data);  
 
     req.refresh_token = JWT.sign({ 'id': data.id, 'name': data.name, 'email': data.email }, 
       session[type].rToken, { algorithm: 'HS256', expiresIn:"14d" });
 
     req.access_token = JWT.sign({ 'id': data.id, 'name': data.name, 'user': session[type].user }, 
-      session[type].aToken, { algorithm: 'HS256', expiresIn:"1m" });
+      session[type].aToken, { algorithm: 'HS256', expiresIn:"3d" });
 
-    req.user = { name: data.name, type: type }; //logo etc.
+    req.user = { name: data.name, type: type }; //add logo etc.
   }).catch(() => req.err = true);
   
   return next();

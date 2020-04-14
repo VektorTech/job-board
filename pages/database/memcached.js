@@ -5,8 +5,7 @@ const memcached = new Memcached(localhost, { maxExpiration: (60*60*24*3) });
 
 memcached.connect( localhost, function( err, conn ){
     if( err ) throw new Error( err );
-    console.log( "Connected Memcached on server: " + localhost );
-    console.log( conn );
+    console.log( "Connected Memcached on server: " + conn.serverAddress );
 });
 
-export default memcached;
+module.exports = memcached;

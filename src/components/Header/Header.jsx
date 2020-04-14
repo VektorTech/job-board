@@ -15,6 +15,19 @@ const Header = () => {
         setSession( JSON.parse(localStorage.getItem('session')) ); 
     }, []);
 
+    const Logout = () => {
+        const data = localStorage.getItem('session');
+
+        fetch('/api/signout', {
+            method:"POST",
+            credentials: "same-origin",
+            body: JSON.stringify({data, access_token: document.cookie }) 
+        }).then(res => {
+            localStorage.setItem('session', null);
+            location.href = '/';
+        });
+    }
+
     return ( <HeaderWrapper id="top">
         <HeaderInner>
             <Link href="/"><Logo></Logo></Link>
@@ -30,10 +43,7 @@ const Header = () => {
                     <>
                     <Link href={`/profile/page/${session['type']}profile`}><a>{session['name']}</a></Link>
                     <button style={{marginLeft:'1rem',border:'none',background:'none',color:'inherit'}} 
-                            onClick={ () => {
-                                localStorage.setItem('session', null);
-                                location.reload();
-                            } }
+                            onClick={Logout}
                             className="logout">Logout</button>
                     </>
                     :

@@ -15,7 +15,7 @@ import {
 
 const $_SESSION = {
   add: (data) =>  memcached.add(data.id, JSON.stringify(data), 60*60, err => { /* stuff */ }),
-  get: (id) => new Promise((reolve, reject) => memcached.gets(id, (err, data) => { if (err) { reject(err) } resolve(data[id]) })),
+  get: (id) => new Promise((resolve, reject) => memcached.gets(id, (err, data) => { if (err) { reject(err); } resolve(data[id]); })),
   del: (data) => memcached.del(data.id, err => { /* stuff */ })
 };
 
@@ -33,22 +33,18 @@ export const getSession = (req, res, next) => {
     }
   };
 
-  try {
-    JWT.verify(req.body.refresh_token, session[req.body.user].rToken, (err, decoded) => {
-      if (err || req.body.user !== session[req.body.user].user) throw err;
+  JWT.verify(req.body.refresh_token, session[req.body.user].rToken, (err, decoded) => {
+    if (err || req.body.user !== session[req.body.user].user) throw err;
 
-      JWT.verify(req.body.access_token, session[req.body.user].aToken, (err) => {
-        if (err) 
-          req.token = JWT.sign({ 'id': decoded.id, 'name': decoded.name, 'user': session[req.body.user].user }, 
-                                  session[req.body.user].aToken, { algorithm: 'HS256', expiresIn:"1m" });
-        $_SESSION.get(decoded.id).then(data => req.session = data);
-      });
+    JWT.verify(req.body.access_token, session[req.body.user].aToken, async (err) => {
+      if (err) 
+        req.token = JWT.sign({ 'id': decoded.id, 'name': decoded.name, 'user': session[req.body.user].user }, 
+                                session[req.body.user].aToken, { algorithm: 'HS256', expiresIn:"1m" });
+
+      req.session = await $_SESSION.get(decoded.id);
+      next();
     });
-  } catch(err) {
-      req.err = err.message;
-  } finally{
-      return next();
-  }
+  });
 }
 
 export const register = async (req, res, next) => {
@@ -61,6 +57,28 @@ export const register = async (req, res, next) => {
   }
 
   return next();
+}
+
+export const signout = (req, res, next) => {
+  const session = {
+    "user": {
+      rToken: REFRESH_TOKEN_SECRET,
+      aToken: ACCESS_TOKEN_SECRET,
+    },
+    "company": {
+      rToken: COMPANY_REFRESH_TOKEN_SECRET,
+      aToken: COMPANY_ACCESS_TOKEN_SECRET,
+    }
+  };
+
+  const access_token = req.body.access_token.split('access-token=')[1];
+  const data = JSON.parse(req.body.data);
+
+  JWT.verify(access_token, session[data.type].aToken, (err, decoded) => {
+    if (err) return next();
+    $_SESSION.del(decoded.id);
+    next();
+  });
 }
 
 export const signin = async (req, res, next) => {

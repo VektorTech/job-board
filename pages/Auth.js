@@ -14,7 +14,7 @@ export default async (ctx, access) => {
             access_token: cookies['access-token'], 
             refresh_token: cookies['refresh-token'], 
             user: access 
-    }) }).then(res => res.json()).then(res => {
+    }) }).then(res => res.text()).then(res => {
         if(JSON.stringify(res) == "{}" || res['err']){
             ctx.res.writeHead(302, { 'Location': '/?signin=true' });
             ctx.res.end();

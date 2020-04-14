@@ -42,6 +42,7 @@ export const getSession = (req, res, next) => {
                                 session[req.body.user].aToken, { algorithm: 'HS256', expiresIn:"1m" });
 
       req.session = await $_SESSION.get(decoded.id);
+      req.session = JSON.parse(req.session);
       next();
     });
   });

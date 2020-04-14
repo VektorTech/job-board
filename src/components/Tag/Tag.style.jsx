@@ -21,7 +21,7 @@ export const SearchTag = styled(TagBox)`
 
 export const JobType = styled(TagBox)`
     width: 8rem;
-    color: #fff;
-    background-color: #56f0db;
+    background-color: #b0ffe9;
+    font-weight: bold;
     border-radius: 2rem;
 `;

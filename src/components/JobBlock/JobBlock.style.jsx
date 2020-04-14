@@ -5,33 +5,70 @@ export const BlockContainer = styled.div`
     width: 100%;
     height: 6rem;
     margin-bottom: 5rem;
+
     display: grid;
-    grid-template-columns: 1.5fr 5.5fr 2.2fr;
+    grid-template-columns: .4fr .6fr 1fr .5fr;
+    grid-template-rows: 1fr .4fr;
+    grid-template-areas: 
+    "a b b c"
+    "a d e c";
 
     @media screen and (max-width: 1024px) {
-        grid-gap: .5rem;
+        grid-column-gap: .5rem;
+        
+    }
+
+    @media screen and (max-width: 667px) {
+        grid-column-gap: .5rem;
+        grid-template-areas: 
+        "a b b c"
+        "d d e e";
     }
 `;
 
 export const CompLogoContainer = styled.div`
+    grid-area: a;
 `;
 
-export const JobDetail = styled.ul`
-    margin-top: 2.5rem;
-`;
-
-export const ListItem = styled.li`
-    display: inline;
-    color: #999;
-    margin-right: 20%;
+export const Title = styled.div`
+    grid-area: b;
     
-    @media screen and (max-width: 1024px) {
-      margin-right: 5%;
+    @media screen and (max-width: 667px) {
+        overflow: hidden;
     }
 `;
 
+export const Time = styled.div`
+    grid-area: c;
+    white-space: nowrap;
+`;
+
+const ListItem = styled.div`
+    white-space: nowrap;
+    font-size: 1.2rem;
+    padding-top: 2rem;
+    color: #999;
+
+    /**Prevents weird grid behaviour */
+    min-width: 0;
+    min-height: 0;
+
+    @media screen and (max-width: 667px) {
+        padding-top: 0;
+    }
+`;
+
+export const CompanyName = styled(ListItem)`
+    grid-area: d;
+`;
+
+export const CompanyLocation = styled(ListItem)`
+    grid-area: e;
+`;
+
 export const JobDate = styled.p`
-    margin-top: 1rem;
+    font-size: 1.2rem;
+    margin-top: .5rem;
     color: #999;
 `;
 

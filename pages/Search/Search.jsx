@@ -19,7 +19,7 @@ import Button from '../../src/components/Buttons/Button';
 
 const SearchPage = () => {
     const [state, setState] = useState([]);
-    const [params, setParams] = useState( process.browser && new URLSearchParams(window.location.search).get('search') );
+    const [params] = useState( process.browser && new URLSearchParams(window.location.search).get('search') );
 
     const asideStruct = {
         // "City": [""],
@@ -90,4 +90,5 @@ const SearchPage = () => {
     </SearchPageContainer>
     </>: null);
 }
+
 export default SearchPage;

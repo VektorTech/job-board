@@ -12,7 +12,7 @@ export const ButtonDefault = styled.button`
 
     @media screen and (max-width: 1024px) {
       width: 7rem;
-      height: 3rem;
+      height: 4rem;
       font-size: 1.1rem;
     }
 `;

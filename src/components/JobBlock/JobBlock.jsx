@@ -1,8 +1,9 @@
 import {
     BlockContainer,
     CompLogoContainer,
-    ListItem, JobDetail,
-    JobDate, FAI
+    CompanyName, CompanyLocation,
+    JobDate, FAI,
+    Title, Time
 } from './JobBlock.style';
 import TagBlock from '../Tag/Tag';
 import Heading from '../Other/Heading.style';
@@ -12,19 +13,21 @@ const JobBlock = ({ title, location, start, time, company }) => {
     return (
     <BlockContainer>
         <CompLogoContainer>
-            <CompLogoImg src={company.logo} small/>
+            <CompLogoImg src={company.logo} size={6.8}/>
         </CompLogoContainer>
-        <div>
+        <Title>
             <Heading size="med">{title}</Heading>
-            <JobDetail>
-                <ListItem><FAI icon="building"/>{company.name}</ListItem>
-                <ListItem><FAI icon="compass"/>{location}</ListItem>
-            </JobDetail>
-        </div>
-        <div style={{textAlign: "right"}}>
+        </Title>
+        <Time>
             <TagBlock type="job">{time} Time</TagBlock>
             <JobDate><FAI icon="calendar"/>{start}</JobDate>
-        </div>
+        </Time>
+        <CompanyName>
+            <FAI icon="building"/>{company.name}
+        </CompanyName>
+        <CompanyLocation>
+            <FAI icon="map-marker"/>{location}
+        </CompanyLocation>
     </BlockContainer>
     );
 }

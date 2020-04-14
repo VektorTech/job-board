@@ -38,7 +38,7 @@ const ViewJob = () => {
             <Banner_2/>
             <ViewJobContainer>
                 <CompLogo>
-                    <CompLogoImg src={company.logo}/>
+                    <CompLogoImg size={12} src={company.logo}/>
                     {/* <Ratings>4.9 <FontAwesomeIcon style={{fontSize:'1.8rem'}} icon="star"/></Ratings> */}
                 </CompLogo>
                 <CompHeading>
@@ -73,6 +73,10 @@ const ViewJob = () => {
                     }
                 </CompTagsArea>
                 <JobDescr>
+                    <Heading style={{height:"fit-content"}} size="lg">
+                        Description
+                    </Heading>
+                    <br/>
                     {description}
                 </JobDescr>
             </ViewJobContainer>

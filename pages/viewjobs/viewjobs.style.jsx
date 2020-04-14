@@ -3,9 +3,9 @@ import { PageContainer } from "../../src/components/Other/PageContainer.style";
 
 export const ViewJobContainer = styled(PageContainer)`
     display: grid;
-    grid-template-columns: .6fr repeat(4, 1fr);
+    grid-template-columns: .8fr repeat(4, 1fr);
     grid-auto-columns: 1fr;
-    grid-template-rows: 12rem 10rem 8rem 8rem max-content;
+    grid-template-rows: 12rem 5rem 8rem 8rem max-content;
     grid-template-areas: 
     "a b b b b"
     "a b b b b"
@@ -54,7 +54,6 @@ export const Ratings = styled.p`
 
 export const Nav = styled.ul`
     font-size: 1.3rem;
-    /* padding: 1rem 0 0 0; */
 `;
 
 export const Column = styled.div`

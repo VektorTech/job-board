@@ -7,6 +7,10 @@ export const BannerWrapper = styled.section`
     margin-top: 6rem;
     border-radius: 1.3rem;
     background-color: #2a7cdb;
+
+    @media screen and (max-width: 667px) {
+        height: 10rem;
+    }
 `;
 
 export const BannerContent = styled.div`
@@ -15,8 +19,16 @@ export const BannerContent = styled.div`
     transform: translateY(190%);
     color: white;
     font-size: 2.5rem;
+
+    @media screen and (max-width: 667px) {
+        transform: translateY(60%);
+    }
 `;
 
 export const BannerContent2 = styled.div`
     transform: translateY(75%);
+
+    @media screen and (max-width: 667px) {
+        transform: translateY(30%);
+    }
 `;

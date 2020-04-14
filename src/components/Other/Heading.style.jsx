@@ -4,6 +4,10 @@ const HeadingSize = {
     sm: "1rem", med: "2rem", lg: "3rem"
 }
 
+const HeadingSizeMobile = {
+    sm: "1rem", med: "1.5rem", lg: "2.5rem"
+}
+
 const Heading = styled.h1`
     font-weight: bold;
     height: 2.3rem;
@@ -13,7 +17,7 @@ const Heading = styled.h1`
     text-align: ${({center}) => center?"center":"left"};
 
     @media screen and (max-width: 1024px) {
-      font-size: 1.5rem;
+      font-size: ${({size}) => HeadingSizeMobile[size] || "1.5rem"};
     }
 `;
 

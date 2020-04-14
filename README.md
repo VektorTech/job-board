@@ -4,6 +4,8 @@
 
 This is a job board where you can register as a employer to post vacancies or as a job seeker looking for vacancies.
 
+**Instructions:** install `npm install` then run `npm run dev` from console.
+
 ### Tech Stack:
 
 * Font Awesome

@@ -16,6 +16,7 @@ This is a job board where you can register as a employer to post vacancies or as
 * Isomorphic Unfetch
 * JSONWebToken (JWT)
 * MariaDB
+* Memcached
 * Sequelize
 * Styled Components
 

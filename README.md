@@ -23,6 +23,9 @@ This is a job board where you can register as a employer to post vacancies or as
 ## Desktop 
 ![alt text](/scrnsht1.png "Desktop")
 
+## Profile Page
+![alt text](/scrnsht3.png "Profile Page")
+
 ## Mobile
 ![alt text](/scrnsht2.png "Mobile")
 

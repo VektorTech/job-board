@@ -6,7 +6,7 @@ export const BannerWrapper = styled.section`
     margin: 0 1.5%;
     margin-top: 6rem;
     border-radius: 1.3rem;
-    background-color: #2a7cdb;
+    background: linear-gradient(#2a7cdb, #2cd4ce);
 
     @media screen and (max-width: 667px) {
         height: 10rem;

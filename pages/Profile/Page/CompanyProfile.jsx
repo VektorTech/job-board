@@ -3,25 +3,32 @@ import {
     Aside, 
     ImageContainer,
     ContentWrapper,
-    Main
+    Main, TextContainer
 } from '../Profile.style';
 import Heading from '../../../src/components/Other/Heading.style';
 
 import Auth from '../../Auth';
 
-const CompanyProfile = ({ name, logo }) => {
+const CompanyProfile = ({ name, email, description, website, phone, address, logo }) => {
     return (
         <PageWrapper>
             <Aside>
-                <ImageContainer>
-                </ImageContainer>
+                <ImageContainer image={logo}></ImageContainer>
+
                 <ContentWrapper>
+                    <TextContainer>{website}</TextContainer>
+                    <TextContainer>{email}</TextContainer>
                 </ContentWrapper>
             </Aside>
 
             <Main>
                 <ContentWrapper>
-                    <Heading size='md'>{name}</Heading>
+                    <Heading size='lg'>{name}</Heading>
+
+                    <TextContainer>{description}</TextContainer>
+                    
+                    <TextContainer>{phone}</TextContainer>
+                    <TextContainer>{address}</TextContainer>
                 </ContentWrapper>
             </Main>
         </PageWrapper>

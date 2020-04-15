@@ -41,7 +41,7 @@ const Header = () => {
                 <NavItem>
                     { session ? 
                     <>
-                    <Link href={`/profile/page/${session['type']}profile`}><a>{session['name']}</a></Link>
+                    <a href={`/profile/page/${session['type']}profile`}>{session['name']}</a>
                     <button style={{marginLeft:'1rem',border:'none',background:'none',color:'inherit'}} 
                             onClick={Logout}
                             className="logout">Logout</button>

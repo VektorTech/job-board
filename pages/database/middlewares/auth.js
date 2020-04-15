@@ -15,7 +15,7 @@ import {
 
 const $_SESSION = {
   add: (data) =>  memcached.add(data.id, JSON.stringify(data), 60*60, err => { /* stuff */ }),
-  get: (id) => new Promise((resolve, reject) => memcached.gets(id, (err, data) => { if (err) { reject(err); } resolve(data[id]); })),
+  get: (id) => new Promise((resolve, reject) => memcached.gets(id, (err, data) => { if (err || !data) { reject(err); } else resolve(data[id]); })),
   del: (data) => memcached.del(data.id, err => { /* stuff */ })
 };
 
@@ -36,14 +36,17 @@ export const getSession = (req, res, next) => {
   JWT.verify(req.body.refresh_token, session[req.body.user].rToken, (err, decoded) => {
     if (err || req.body.user !== session[req.body.user].user) throw err;
 
-    JWT.verify(req.body.access_token, session[req.body.user].aToken, async (err) => {
+    JWT.verify(req.body.access_token, session[req.body.user].aToken, (err) => {
       if (err) 
         req.token = JWT.sign({ 'id': decoded.id, 'name': decoded.name, 'user': session[req.body.user].user }, 
                                 session[req.body.user].aToken, { algorithm: 'HS256', expiresIn:"1m" });
 
-      req.session = await $_SESSION.get(decoded.id);
-      req.session = JSON.parse(req.session);
-      next();
+      $_SESSION.get(decoded.id).then(data => {
+        req.session = JSON.parse(data);
+      }).catch(err => { 
+        req.err = {err:true};
+      }).finally(() => next());
+
     });
   });
 }

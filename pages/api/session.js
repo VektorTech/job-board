@@ -8,8 +8,8 @@ handler.use((req, res, next) => {
   //validate
   return next();
 }).use(getSession).post((req, res) => {
-  if (req.token) req.session['access-token'] = req.token;
-  !req.err ? res.json(req.session) : res.json({err: req.err});
+  if (req.session && req.token) { req.session['access-token'] = req.token; }
+  !req.err ? res.json(req.session) : res.json(req.err);
 });
 
 export default handler;

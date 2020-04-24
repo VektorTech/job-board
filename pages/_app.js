@@ -12,10 +12,14 @@ import Header from '../src/components/Header/Header';
 import Footer from '../src/components/Footer/Footer';
 
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 export default ({ Component, pageProps }) => {
     return (
-        <>    
+        <> 
+        <Head>
+            <link rel='icon' href='/favicon.ico'/>
+        </Head>   
         { useRouter().query['signin'] ? <SignModal show={true} init='login'></SignModal> : null }
         <Header />
         <br />

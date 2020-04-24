@@ -7,8 +7,11 @@ import {
 } from './Header.style';
 
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const Header = () => {
+    const router = useRouter();
+
     const [session, setSession] = useState(null)
 
     useEffect( () => {
@@ -32,10 +35,10 @@ const Header = () => {
         <HeaderInner>
             <Link href="/"><Logo></Logo></Link>
             <Nav>
-                <NavItem><Link href="/"><a>Jobs</a></Link></NavItem>
-                <NavItem><Link href="/"><a>Companies</a></Link></NavItem>
-                <NavItem><a href="/postjob/postjob">Post a job</a></NavItem>
-                <NavItem><Link href="/"><a>Resume Search</a></Link></NavItem>
+                <NavItem active={router.pathname.includes("/jobs")}><Link href="/"><a>Jobs</a></Link></NavItem>
+                <NavItem active={router.pathname.includes("/companies")}><Link href="/"><a>Companies</a></Link></NavItem>
+                <NavItem active={router.pathname.includes("/postjob")}><a href="/postjob/postjob">Post a job</a></NavItem>
+                <NavItem active={router.pathname.includes("/resumesearch")}><Link href="/"><a>Resume Search</a></Link></NavItem>
             </Nav>
             <Nav>
                 <NavItem>

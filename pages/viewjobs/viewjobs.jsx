@@ -20,6 +20,8 @@ import { useEffect, useState } from 'react';
 import { Banner_2 } from '../../src/components/Banner/Banner';
 
 
+import Head from 'next/head';
+
 const ViewJob = () => {
     const [state, setState] = useState();
 
@@ -35,6 +37,9 @@ const ViewJob = () => {
         const details = {"SALARY": "$"+salary, "START DATE": start, "LOCATION": location};
 
         return (<>
+            <Head>
+                <title>{title}</title>
+            </Head>
             <Banner_2/>
             <ViewJobContainer>
                 <CompLogo>

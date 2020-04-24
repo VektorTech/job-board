@@ -9,8 +9,12 @@ import Heading from '../../../src/components/Other/Heading.style';
 
 import Auth from '../../Auth';
 
+import Head from 'next/head';
+
 const CompanyProfile = ({ name, email, description, website, phone, address, logo }) => {
     return (
+        <>
+        <Head><title>Profile: {name}</title></Head>
         <PageWrapper>
             <Aside>
                 <ImageContainer image={logo}></ImageContainer>
@@ -32,6 +36,7 @@ const CompanyProfile = ({ name, email, description, website, phone, address, log
                 </ContentWrapper>
             </Main>
         </PageWrapper>
+        </>
     );
 }
 

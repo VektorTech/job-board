@@ -12,6 +12,8 @@ import { Banner_2 } from '../../src/components/Banner/Banner';
 
 import Auth from '../Auth';
 
+import Head from 'next/head';
+
 const formHandler = e => {
     e.preventDefault();
     
@@ -36,6 +38,7 @@ const formHandler = e => {
 
 const PostJob = () => {
     return (<>
+        <Head><title>Post A Job</title></Head>
         <Banner_2 />
         <PageContainer>
             <form name='post_job'>

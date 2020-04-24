@@ -4,7 +4,6 @@ import {
     SearchPageAside,
     SearchTagArea,
     ListItem,
-    CheckBox
 } from './search.style';
 
 import JobBlock from '../../src/components/JobBlock/JobBlock';
@@ -13,6 +12,7 @@ import Heading from '../../src/components/Other/Heading.style';
 import fetch from 'isomorphic-unfetch';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Head from 'next/head';
 import { Banner_1 } from '../../src/components/Banner/Banner';
 
 import Button from '../../src/components/Buttons/Button';
@@ -51,7 +51,14 @@ const SearchPage = () => {
 
     useEffect(formHandler, []);
 
-    return ( state ? <>
+    return ( 
+    <>
+    { params ?
+        <Head>
+        <title>Job Search: {params}</title>
+        </Head> : null
+    }
+    { state ? <>
     <Banner_1 found={state.length} />
     <SearchPageContainer>
         <SearchPageAside>
@@ -88,7 +95,7 @@ const SearchPage = () => {
         </SearchPageMain>
 
     </SearchPageContainer>
-    </>: null);
+    </>: null } </> );
 }
 
 export default SearchPage;
